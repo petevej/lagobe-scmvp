@@ -1,0 +1,128 @@
+{
+	"sellwithus": "SELL WITH US",
+	"signup": "Sign Up",
+	"signin": "Sign In",
+	"firstname": "First Name",
+	"lastname": "Last Name",
+	"email": "Email",
+	"phone": "Phone",
+    "username": "Username",
+	"password":"Password",
+    "language": "EN",
+    "remember": "Remember",
+    "agreement": "By Signing Up to Sell you are agreeing to these Terms & Conditions.",
+    "view-contract": "View Seller Contract Here",
+    "signupsuccess": "Thank You",
+    "signupfail": "Cannot register, please contact admin",
+    "notify-error": {
+        "signin": "Username or password incorrect"
+    },
+    "main": {
+        "why": {
+            "heading": "WHY LAGOBE",
+            "items": [{
+                "fa-icon": "fa-bullseye",
+                "icon": "assets/img/freeze/icon-01.png",
+                "heading": "Focused Customer Segment",
+                "content": "#1 Online marketplace center for LGBT fashion in Asia."
+            }, {
+                "fa-icon": "fa-flask",
+                "icon": "assets/img/freeze/icon-02.png",
+                "heading": "Experiment",
+                "content": "Where fashion brand owners can try breaking into a new market through a new shopping experience."
+            }, {
+                "fa-icon": "fa-money",
+                "icon": "assets/img/freeze/icon-03.png",
+                "heading": "Make money",
+                "content": "Selling to a niche market. If you have the right products but find it hard to reach customers, sign up with us for free. No payment required until sales complete."
+            }],
+            "find-out-more": "Find out more >"
+        },
+        "how-to-sell": {
+            "title": "How to sell on Lagobe",
+            "paragraph": "Grow your business with us",
+            "items": [
+                "Sign up on our seller center",
+                "Upload product information",
+                "Send products to us for professional photo shoot",
+                "Prepare items for pickup upon sold",
+                "Earn money every payment cycle"
+            ],
+            "find-out-more": "Find out more about how it works >"
+        },
+        "store": {
+            "items": [{
+                "number": 20,
+                "unit": "Stores"
+            }, {
+                "number": 500,
+                "unit": "Items listed"
+            }, {
+                "number": 2000,
+                "unit": "Happy Customers"
+            }],
+            "find-out-more": "Join many happy store owners >"
+        },
+        "review": {
+            "items": [{
+                "picture": "assets/img/freeze/profile_1.png",
+                "name": "M Lady",
+                "position": "Owner, the fine clothing store",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }, {
+                "picture": "assets/img/freeze/profile_2.png",
+                "name": "M Knight Shayaya",
+                "position": "Owner, boy playground",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }, {
+                "picture": "assets/img/freeze/profile_3.jpg",
+                "name": "M Lady",
+                "position": "Owner, the fine clothing store",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }]
+        }
+    },
+    "footer": {
+        "lagobe": {
+            "title": "Lagobe",
+            "items": [{
+                "href": "/privacy",
+                "text": "Privacy Policy"
+            }]
+        },
+        "sellers": {
+            "title": "For Sellers",
+            "items": [
+                "Store Owners",
+                "Benefits of Selling with Lagobe",
+                "Frequently Asked Questions"
+            ]
+        },
+        "shoppers": {
+            "title": "For Shoppers",
+            "items": [
+                "Future Events"
+            ]
+        },
+        "contact-us": {
+            "title": "Contact Us",
+            "line": {
+                "field": "Line",
+                "value": "@lagobe"
+            },
+            "call": {
+                "field": "Call",
+                "value": {
+                    "tel": "02-311-0589",
+                    "mon-fri": "M.-F. 9.00 - 22.00 ",
+                    "sat-sun": "Sat-Sun 9.00 - 18.00"
+                }
+            },
+            "email": {
+                "field": "E-mail",
+                "value": "hello@lagobe.com"
+            },
+            "qr-code": "assets/img/freeze/qrcode.svg"
+        }
+    }
+}

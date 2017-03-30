@@ -1,8 +1,6 @@
 # lagobe-scmvp
 Seller Center MVP
 
-# Lagobe
-
 # Prerequisite
 
 ## Download Tools:

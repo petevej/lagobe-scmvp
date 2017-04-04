@@ -1,0 +1,145 @@
+<signup-page>
+    <div class="head">
+        <img src="assets/img/freeze/logo.png" alt="" class="logo">
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="board">
+                <ul class="nav nav-tabs">
+                    <div class="liner"></div>
+                    <li rel-index="0" class="active">
+                        <a href="#step-1" class="btn" aria-controls="step-1" role="tab" data-toggle="tab">
+                            <span><i class="glyphicon glyphicon-user"></i></span>
+                        </a>
+                    </li>
+                    <li rel-index="1">
+                        <a href="#step-2" class="btn disabled" aria-controls="step-2" role="tab" data-toggle="tab">
+                            <span><i class="glyphicon glyphicon-heart"></i></span>
+                        </a>
+                    </li>
+                    <li rel-index="2">
+                        <a href="#step-3" class="btn disabled" aria-controls="step-3" role="tab" data-toggle="tab">
+                            <span><i class="glyphicon glyphicon-plus"></i></span>
+                        </a>
+                    </li>
+                    <li rel-index="3">
+                        <a href="#step-4" class="btn disabled" aria-controls="step-4" role="tab" data-toggle="tab">
+                            <span><i class="glyphicon glyphicon-ok"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="step-1">
+                    <div class="col-md-12" style="padding-bottom: 20px;">
+                        <h3>Store’s Owner Information</h3>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">First Name</label>
+                                <input name="salesContactName" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Last Name</label>
+                                <input name="salesContactName" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Email Address</label>
+                                <input name="email" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Phone</label>
+                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <button id="step-1-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="step-2">
+                    <div class="col-md-12" style="padding-bottom: 20px;">
+                        <h3>Store Information</h3>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Store Name</label>
+                                <input name="storeName" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Website</label>
+                                <input name="website" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Facebook</label>
+                                <input name="facebook" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Pick-up Address</label>
+                                <input name="pickupAddr" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Document Drop Address</label>
+                                <input name="docDropAddr" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="visibility: hidden;">
+                                <label class="control-label"></label>
+                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <button id="step-2-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="step-3">
+                    <div class="col-md-12" style="padding-bottom: 20px;">
+                        <h3> Bank Information</h3>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Bank Account Number</label>
+                                <input name="bankAccNo" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Bank Name</label>
+                                <input name="bankName" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Bank Account Name</label>
+                                <input name="bankAccName" type="text" placeholder="" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Commissions</label>
+                                <input name="salesContactNumber" type="text" placeholder="" class="form-control" value="11%" readonly />
+                            </div>
+                        </div>
+                        <button id="step-3-next" class="btn btn-lg btn-primary nextBtn pull-right">Next</button>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="step-4">
+                    <div class="col-md-12" style="padding-bottom: 20px;">
+                        <h3> Summary</h3>
+                        <button id="step-4-next" class="btn btn-lg btn-primary pull-right">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</signup-page>

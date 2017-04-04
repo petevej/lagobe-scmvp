@@ -1,0 +1,679 @@
+<main-page>
+    <div class="pre-loader">
+        <div class="load-con">
+            <img src="assets/img/freeze/logo.png" class="animated fadeInDown" alt="">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+<!--
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+-->
+                    <a class="navbar-brand" href="/">
+                        <img src="assets/img/freeze/logo.png" alt="" class="logo">
+                    </a>
+                    <button ng-click="main.loadLabel('landingpage','en')">en</button> | <button ng-click="main.loadLabel('landingpage','th')">th</button>
+<!--                    <a href="#"><i class="fa fa-sign-in"></i></a>-->
+<!--                    <a class="sell-with-us" ui-sref="signup">SELL WITH US</a>-->
+
+                    <ul class="navbar-register">
+                        <li><a href="#" register-menu menu="signin"><i class="fa fa-sign-in"></i>{{main.label.signin}}</a></li>
+                        <li><a href="#" register-menu menu="signup" class="sell-with-us">{{main.label.sellwithus}}</a></li>
+                    </ul>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+<!--
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav">
+                                <li><a href="#about">about</a>
+                                </li>
+                                <li><a href="#features">features</a>
+                                </li>
+                                <li><a href="#reviews">reviews</a>
+                                </li>
+                                <li><a href="#screens">screens</a>
+                                </li>
+                                <li><a href="#demo">demo</a>
+                                </li>
+                                <li><a class="getApp" href="#getApp">get app</a>
+                                </li>
+                                <li><a href="#support">support</a>
+                                </li>
+
+                        <li><a href="/">Seller</a>
+                        </li>
+                        <li><a href="#">Shopper</a>
+                        </li>
+                    </ul>
+                </div>
+-->
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+        </nav>
+        <div class="header-background">
+            <img src="assets/img/freeze/bg-header.jpg" />
+        </div>
+        <div class="header-content">
+            <div align="center" class="container">
+                <div align="left" class="register-dialog">
+                    <h3>SELLER CENTER</h3>
+
+                    <div class="register-panel">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a id="signupTab" register-tab href="#signupPane">{{main.label.sellwithus}}</a></li>
+                            <li><a id="signinTab" register-tab href="#signinPane">{{main.label.signin}}</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="signupPane">
+                                <form id="signupForm" action="#" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6" style="padding-right: 5px;">
+                                            <input class="form-control" name="firstname" placeholder="{{main.label.firstname}}" type="text" required />
+                                        </div>
+                                        <div class="col-xs-6 col-md-6" style="padding-left: 5px;">
+                                            <input class="form-control" name="lastname" placeholder="{{main.label.lastname}}" type="text" required />
+                                        </div>
+                                    </div>
+                                    <input class="form-control" name="email" placeholder="{{main.label.email}}" type="email" />
+                                    <input class="form-control" name="phone" placeholder="{{main.label.phone}}" type="text" />
+                                    <input class="form-control" name="password" placeholder="{{main.label.password}}" type="password" />
+                                    <br />
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signup}}</button>
+                                    <br />
+                                    <div class="agreement">
+                                        <div><input type="checkbox" checked /></div>
+                                        <div>By Signing Up to Sell you are agreeing to these Terms & Conditions.</div>
+                                    </div>
+                                    <div align="center"><a href="#" ng-click="main.viewContract()">View Seller Contract Here</a></div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="signinPane">
+                                <form id="signinForm" method="post" ng-submit="main.signin()" novalidate>
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="Email" ng-model="main.user.username">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="Password" ng-model="main.user.password">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="remember" id="remember"> Remember
+                                        </label>
+                                    </div>
+                                    <br />
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signin}}</button>
+                                    <!--                                            <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--RevSlider-->  <!-- style="max-height: none; overflow: visible; height: 918px;"-->
+        <div class="tp-banner-container">
+            <div class="tp-banner">
+                <div class="container">
+
+
+
+
+                    <!--
+                        <div class="row vcenter">
+                            <div class="col-xs-5 col-md-7 col-lg-9">
+                                <div>Small</div>
+                            </div>
+                        </div>
+    -->
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+
+    <div class="wrapper">
+        <section id="about">
+            <div class="container">
+                <div class="section-heading scrollpoint sp-effect3">
+                    <h1>WHY LAGOBE</h1>
+                    <div class="divider"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-item scrollpoint sp-effect5">
+                            <i class="fa fa-bullseye fa-5x"></i>
+                            <h3>Focused Customer Segment</h3>
+                            <p>Enjoy higher conversion rates for your store when you list on Lagobe. We don't aim to be everything for everybody. Therefore you will have a much higher chance of closing the sales with this specific customer group.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-item scrollpoint sp-effect5">
+                            <i class="fa fa-flask fa-5x"></i>
+                            <h3>Experiment</h3>
+                            <p>Without altering current brand targeting. Tired of selling in an oversaturated fasion market? Try jumping over into this one where passion-buying is the norm.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="about-item scrollpoint sp-effect5">
+                            <i class="fa fa-money fa-5x"></i>
+                            <h3>Make money</h3>
+                            <p>Selling to a niche market. Already have a physical or IG store? No problem, boost your brand and sales through omnichannel sales!.</p>
+                        </div>
+                    </div>
+                </div>
+                <a ui-sref="signup" class="find-out-more">Find out more ></a>
+            </div>
+        </section>
+
+        <section id="howToSell">
+            <div class="container">
+                <div class="how-to-sell">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7 scrollpoint sp-effect1">
+                            <h1>How to sell on Lagobe</h1>
+                            <p>Grow your business with us</p>
+
+                            <ul>
+                                <li><i class="fa fa-check-circle"></i> Sign up on our seller center</li>
+                                <li><i class="fa fa-check-circle"></i> Upload product information</li>
+                                <li><i class="fa fa-check-circle"></i> Ship your product(s) upon successful sales</li>
+                                <li><i class="fa fa-check-circle"></i> Earn money every payment cycle</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5 col-sm-5 scrollpoint sp-effect4">
+                            <img src="assets/img/freeze/how-to-sell.jpg" class="img-responsive" alt="">
+                        </div>
+                    </div>
+                    <a ui-sref="signup" class="find-out-more">Find out more about how it works ></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="store">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="scrollpoint sp-effect4 store-item">
+                            <div class="number" num-target=20></div>
+                            <div class="unit">Stores</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="scrollpoint sp-effect4 store-item">
+                            <div class="number" num-target=500></div>
+                            <div class="unit">Items listed</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="scrollpoint sp-effect4 store-item">
+                            <div class="number" num-target=2000></div>
+                            <div class="unit">Happy Customers</div>
+                        </div>
+                    </div>
+                </div>
+                <a ui-sref="signup" class="find-out-more">Join many happy store owners ></a>
+            </div>
+        </section>
+
+        <!--
+            <section id="features">
+                <div class="container">
+                    <div class="section-heading scrollpoint sp-effect3">
+                        <h1>Features</h1>
+                        <div class="divider"></div>
+                        <p>Learn more about this feature packed App</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+                            <div class="media text-right feature">
+                                <a class="pull-right" href="#">
+                                    <i class="fa fa-cogs fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">User Settings</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media text-right feature">
+                                <a class="pull-right" href="#">
+                                    <i class="fa fa-envelope fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Messages Inbox</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media text-right feature">
+                                <a class="pull-right" href="#">
+                                    <i class="fa fa-users fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Friends List</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media text-right feature">
+                                <a class="pull-right" href="#">
+                                    <i class="fa fa-comments fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Live Chat Messages</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media text-right feature">
+                                <a class="pull-right" href="#">
+                                    <i class="fa fa-calendar fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Calendar / Planner</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4" >
+                            <img src="assets/img/freeze/iphone-freeze.png" class="img-responsive scrollpoint sp-effect5" alt="">
+                        </div>
+                        <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+                            <div class="media feature">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-map-marker fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">My Places</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media feature">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-film fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Media Player™</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media feature">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-compass fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Intuitive Statistics</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media feature">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-picture-o fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">Weather on-the-go</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                            <div class="media active feature">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-plus fa-2x"></i>
+                                </a>
+                                <div class="media-body">
+                                    <h3 class="media-heading">And much more!</h3>
+                                    Lorem ipsum dolor sit amet.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    -->
+        <section id="reviews">
+            <div class="container">
+                <!--
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner" role="listbox">
+                            <div class="carousel-item active">
+                                <img class="d-block img-fluid" src="..." alt="First slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="..." alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block img-fluid" src="..." alt="Third slide">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+    -->
+
+
+
+
+
+
+
+
+
+
+                <!--
+                    <div class="section-heading inverse scrollpoint sp-effect3">
+                        <h1>Reviews</h1>
+                        <div class="divider"></div>
+                        <p>Read What's The People Are Saying About Us</p>
+                    </div>
+    -->
+                <div class="row">
+                    <div class="col-md-10 col-md-push-1 col-sm-10 col-sm-push-1 col-xs-8 col-xs-push-2 scrollpoint sp-effect3">
+                        <div class="review-filtering">
+                            <div class="review">
+                                <div class="review-comment">
+                                    <h3>
+    Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!</h3>
+                                </div>
+                                <div class="review-person">
+                                    <img align="left" src="assets/img/freeze/profile_1.png" alt="">
+                                    <div class="reviewer">
+                                        <div class="reviewer-name">M Lady</div>
+                                        <div class="reviewer-position">Owner, the fine clothing store</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review rollitin">
+                                <div class="review-comment">
+                                    <h3>
+    Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!</h3>
+                                </div>
+                                <div class="review-person">
+                                    <img align="left" src="assets/img/freeze/profile_2.png" alt="">
+                                    <div class="reviewer">
+                                        <div class="reviewer-name">M Knight Shayaya</div>
+                                        <div class="reviewer-position">Owner, boy playground</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="review rollitin">
+                                <div class="review-comment">
+                                    <h3>
+    Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!</h3>
+                                </div>
+                                <div class="review-person">
+                                    <img align="left" src="assets/img/freeze/profile_3.jpg" alt="">
+                                    <div class="reviewer">
+                                        <div class="reviewer-name">M Lady</div>
+                                        <div class="reviewer-position">Owner, the fine clothing store</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--
+            <section id="screens">
+                <div class="container">
+
+                    <div class="section-heading scrollpoint sp-effect3">
+                        <h1>Screens</h1>
+                        <div class="divider"></div>
+                        <p>See what’s included in the App</p>
+                    </div>
+
+                    <div class="filter scrollpoint sp-effect3">
+                        <a href="javascript:void(0)" class="button js-filter-all active">All Screens</a>
+                        <a href="javascript:void(0)" class="button js-filter-one">User Access</a>
+                        <a href="javascript:void(0)" class="button js-filter-two">Social Network</a>
+                        <a href="javascript:void(0)" class="button js-filter-three">Media Players</a>
+                    </div>
+                    <div class="slider filtering scrollpoint sp-effect5" >
+                        <div class="one">
+                            <img src="assets/img/freeze/screens/profile.jpg" alt="">
+                            <h4>Profile Page</h4>
+                        </div>
+                        <div class="two">
+                            <img src="assets/img/freeze/screens/menu.jpg" alt="">
+                            <h4>Toggel Menu</h4>
+                        </div>
+                        <div class="three">
+                            <img src="assets/img/freeze/screens/weather.jpg" alt="">
+                            <h4>Weather Forcast</h4>
+                        </div>
+                        <div class="one">
+                            <img src="assets/img/freeze/screens/signup.jpg" alt="">
+                            <h4>Sign Up</h4>
+                        </div>
+                        <div class="one">
+                            <img src="assets/img/freeze/screens/calendar.jpg" alt="">
+                            <h4>Event Calendar</h4>
+                        </div>
+                        <div class="two">
+                            <img src="assets/img/freeze/screens/options.jpg" alt="">
+                            <h4>Some Options</h4>
+                        </div>
+                        <div class="three">
+                            <img src="assets/img/freeze/screens/sales.jpg" alt="">
+                            <h4>Sales Analysis</h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="demo">
+                <div class="container">
+                    <div class="section-heading scrollpoint sp-effect3">
+                        <h1>Demo</h1>
+                        <div class="divider"></div>
+                        <p>Take a closer look in more detail</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 scrollpoint sp-effect2">
+                            <div class="video-container" >
+                                <iframe src="http://player.vimeo.com/video/70984663"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="getApp">
+                <div class="container-fluid">
+                    <div class="section-heading inverse scrollpoint sp-effect3">
+                        <h1>Get App</h1>
+                        <div class="divider"></div>
+                        <p>Choose your native platform and get started!</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="hanging-phone scrollpoint sp-effect2 hidden-xs">
+                                <img src="assets/img/freeze/freeze-angled2.png" alt="">
+                            </div>
+                            <div class="platforms">
+                                <a href="#" class="btn btn-primary inverse scrollpoint sp-effect1">
+                                    <i class="fa fa-android fa-3x pull-left"></i>
+                                    <span>Download for</span><br>
+                                    <b>Android</b>
+                                </a>
+
+                                    <a href="#" class="btn btn-primary inverse scrollpoint sp-effect2">
+                                        <i class="fa fa-apple fa-3x pull-left"></i>
+                                        <span>Download for</span><br>
+                                        <b>Apple IOS</b>
+                                    </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+            <section id="support" class="doublediagonal">
+                <div class="container">
+                    <div class="section-heading scrollpoint sp-effect3">
+                        <h1>Support</h1>
+                        <div class="divider"></div>
+                        <p>For more info and support, contact us!</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-8 scrollpoint sp-effect1">
+                                    <form role="form">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Your name">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" placeholder="Your email">
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea cols="30" rows="10" class="form-control" placeholder="Your message"></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    </form>
+                                </div>
+                                <div class="col-md-4 col-sm-4 contact-details scrollpoint sp-effect2">
+                                    <div class="media">
+                                        <a class="pull-left" href="#" >
+                                            <i class="fa fa-map-marker fa-2x"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">4, Some street, California, USA</h4>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <a class="pull-left" href="#" >
+                                            <i class="fa fa-envelope fa-2x"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">
+                                                <a href="mailto:support@oleose.com">support@oleose.com</a>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="media">
+                                        <a class="pull-left" href="#" >
+                                            <i class="fa fa-phone fa-2x"></i>
+                                        </a>
+                                        <div class="media-body">
+                                            <h4 class="media-heading">+1 234 567890</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    -->
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>Lagobe</h3>
+                            <ul>
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Join Us</a></li>
+                                <li><a href="#">For Press</a></li>
+                                <li><a href="#">Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>For Sellers</h3>
+                            <ul>
+                                <li><a href="#">Store Owners</a></li>
+                                <li><a href="#">IG/Facebook Shop Owners</a></li>
+                                <li><a href="#">Benefits of Selling with Lagobe</a></li>
+                                <li><a href="#">Frequently Asked Questions</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h3>For Shoppers</h3>
+                            <ul>
+                                <li><a href="#">Future Events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="footer-item">
+                            <h4>Contact Us</h4>
+                            <p><span class="contactus-field">Line: </span>@LAGOBE</p>
+                            <p><span class="contactus-field">Call: </span>02-222-2222
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>M.-F. 9.00 - 22.00
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>Sat-Sun 9.00 - 18.00
+                            </p>
+                            <p><span class="contactus-field">E-mail: </span>hello@lagobe.com</p>
+
+<!--                            <img src="assets/img/freeze/qr-code.png" class="qr-code img-responsive" alt="">-->
+
+                            <img src="assets/img/freeze/qrcode.svg" class="qr-code img-responsive" alt="">
+
+
+<!--                            <img src=“http://api.qrserver.com/v1/create-qr-code/?color=000080&amp;bgcolor=FFFFFF&amp;data=https%3A%2F%2Fwww.lagobe.com&amp;qzone=1&amp;margin=0&amp;size=800x800&amp;ecc=L” alt=“qr code” />-->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--
+                <div class="container">
+                    <a href="#" class="scrollpoint sp-effect3">
+                        <img src="assets/img/freeze/logo.png" alt="" class="logo">
+                    </a>
+                    <div class="social">
+                        <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-google-plus fa-lg"></i></a>
+                        <a href="#" class="scrollpoint sp-effect3"><i class="fa fa-facebook fa-lg"></i></a>
+                    </div>
+                    <div class="rights">
+                        <p>Copyright &copy; 2014</p>
+                        <p>Template by <a href="http://www.scoopthemes.com" target="_blank">ScoopThemes</a></p>
+                    </div>
+                </div>
+    -->
+        </footer>
+
+
+
+    </div>
+</main-page>

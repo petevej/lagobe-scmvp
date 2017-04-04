@@ -1,0 +1,120 @@
+html,
+body,
+div[ui-view] {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
+}
+signup-page {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align items in Main Axis */
+  align-items: stretch;
+  /* align items in Cross Axis */
+  align-content: stretch;
+  /* Extra space in Cross Axis */
+}
+signup-page header {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #000080;
+}
+signup-page header .logo {
+  width: 180px;
+  height: auto;
+  margin-left: 20px;
+}
+signup-page header .navbar-toggle {
+  margin-left: 15px;
+}
+signup-page .wrapper {
+  flex: 1;
+  /* same as flex: 1 1 auto; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  /* align items in Main Axis */
+  align-items: stretch;
+  /* align items in Cross Axis */
+  align-content: stretch;
+  /* Extra space in Cross Axis */
+}
+signup-page .wrapper .left-side {
+  background-color: lavender;
+}
+signup-page .wrapper .right-side {
+  background-color: white;
+}
+signup-page .wrapper .navbar-collapse {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+signup-page .wrapper ul.step-tabs {
+  list-style-type: none;
+  margin: 0px -15px;
+  padding: 0px;
+}
+signup-page .wrapper ul.step-tabs > li.active {
+  background-color: #ffffff;
+}
+signup-page .wrapper ul.step-tabs > li > a.step-tab {
+  display: block;
+  padding: 15px 0;
+  padding-left: 15px;
+  color: #000080;
+  font-size: 16pt;
+}
+signup-page .wrapper ul.step-tabs > li > a.step-tab:hover,
+signup-page .wrapper ul.step-tabs > li > a.step-tab:focus {
+  color: #000080;
+  background-color: #ffffff;
+  text-decoration: none;
+}
+signup-page .wrapper .tab-content {
+  height: 100%;
+  overflow: auto;
+  margin: 0 -15px;
+}
+signup-page .wrapper .form-control[readonly] {
+  color: black;
+}
+signup-page .wrapper .btn-save {
+  margin: 15px 8px 15px 0px;
+  width: 50%;
+}
+signup-page .wrapper .btn-cancel {
+  margin: 15px 0px 15px 8px;
+  width: 50%;
+}
+@media screen and (max-width: 767px) {
+  signup-page header .logo {
+    margin-left: -15px;
+  }
+  signup-page header .navbar-toggle {
+    margin-left: 15px;
+  }
+  signup-page .wrapper .left-side {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  signup-page .wrapper ul.step-tabs {
+    width: 200px;
+    margin: 0px;
+  }
+}
+@media screen and (min-width: 768px) {
+  signup-page .wrapper ul.step-tabs > li > a.step-tab {
+    padding-left: 14%;
+  }
+}
+@media screen and (min-width: 992px) {
+  signup-page .wrapper ul.step-tabs > li > a.step-tab {
+    padding-left: 25%;
+  }
+}

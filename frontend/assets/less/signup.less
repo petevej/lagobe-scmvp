@@ -1,0 +1,149 @@
+@base: #000080;
+
+@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
+@lightGrey:   #999999;
+@darkGrey:    #666666;
+@white:       #ffffff;
+
+html, body, div[ui-view]{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: @font-stack;
+}
+
+signup-page {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* align items in Main Axis */
+    align-items: stretch; /* align items in Cross Axis */
+    align-content: stretch; /* Extra space in Cross Axis */
+    header {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: @base;
+        .logo {
+            width: 180px;
+            height: auto;
+            margin-left: 20px;
+        }
+        .navbar-toggle {
+            margin-left: 15px;
+        }
+    }
+    .wrapper {
+        flex: 1; /* same as flex: 1 1 auto; */
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: flex-start; /* align items in Main Axis */
+        align-items: stretch; /* align items in Cross Axis */
+        align-content: stretch; /* Extra space in Cross Axis */
+        .left-side {
+            background-color: lavender;
+        }
+        .right-side {
+            background-color: white;
+        }
+        .navbar-collapse{
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+        ul.step-tabs{
+            list-style-type: none;
+            margin: 0px -15px;
+            padding: 0px;
+            & > li {
+                &.active {
+                    background-color: @white;
+                }
+                & > a.step-tab {
+                    display: block;
+                    padding: 15px 0;
+                    padding-left: 15px;
+                    color: @base;
+                    font-size: 16pt;
+                    &:hover, &:focus {
+                        color: @base;
+                        background-color: @white;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            height: 100%;
+            overflow: auto;
+            margin: 0 -15px;
+        }
+        .form-control[readonly] {
+            color: black;
+        }
+        .btn-save {
+            margin: 15px 8px 15px 0px;
+            width: 50%;
+        }
+        .btn-cancel {
+            margin: 15px 0px 15px 8px;
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    signup-page {
+        header {
+            .logo {
+                margin-left: -15px;
+            }
+            .navbar-toggle {
+                margin-left: 15px;
+            }
+        }
+        .wrapper {
+            .left-side {
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+            ul.step-tabs{
+                width: 200px;
+                margin: 0px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    signup-page {
+        .wrapper {
+            ul.step-tabs{
+                & > li {
+                    & > a.step-tab {
+                        padding-left: 14%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    signup-page {
+        .wrapper {
+            ul.step-tabs{
+                & > li {
+                    & > a.step-tab {
+                        padding-left: 25%;
+                    }
+                }
+            }
+        }
+    }
+}

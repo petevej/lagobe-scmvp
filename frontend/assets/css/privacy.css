@@ -1,0 +1,14 @@
+privacy-page {
+  display: block;
+  padding: 40px;
+}
+privacy-page p {
+  text-indent: 40px;
+  line-height: 26px;
+}
+privacy-page ul {
+  margin-left: 40px;
+}
+privacy-page ul > li {
+  line-height: 26px;
+}

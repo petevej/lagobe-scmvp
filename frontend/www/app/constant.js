@@ -5,7 +5,8 @@ const PAGE = {
 const CONFIG = {
     PATH: {
         //APIS: "http://sc.lagobe.com"
-        APIS: "http://localhost:3000"
+        //APIS: "http://localhost:3000"
+        APIS: "http://localhost/apis"
     }
 }
 

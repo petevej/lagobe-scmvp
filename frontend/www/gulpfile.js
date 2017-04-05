@@ -51,7 +51,7 @@ gulp.task('less', function () {
 gulp.task('connect', function() {
   connect.server({
     root: './',
-    livereload: true,
+    livereload: false,
     port: 4000
   });
 });

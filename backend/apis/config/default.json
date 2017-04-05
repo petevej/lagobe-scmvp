@@ -1,0 +1,11 @@
+{
+    "jwtSecret": "A5tpUn3w8knbYz98",
+    "tokenLifeTime": "30m",
+    "database": {
+        "driver": "mysql",
+        "host": "localhost",
+        "name": "lagobe",
+        "user": "root",
+        "password": "mnbvcxzA"
+    }
+}

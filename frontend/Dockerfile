@@ -1,59 +1,46 @@
-#FROM debian:8
+FROM fedora:25
 
-#FROM debian:jessie
+# Install neccessary packages
+RUN dnf install -y \
+#    nodejs-1:6.10.0-1 \
+#    nginx-1:1.10.2-1 \
+    nodejs \
+    nginx \
+    supervisor \
+    logrotate \
+    git
 
-#RUN apt-get update;
-
-
-#RUN apt-get install -y nginx
-
-FROM node:6.10.1
-
-#FROM nginx:1.11.12
-
-RUN mkdir -p /usr/src/www
-WORKDIR /usr/src/www
-
-#RUN apt-get install -y curl
-#RUN curl -sL https://deb.nodesource.com/setup_6.x | -E bash -
-#RUN apt-get install -y nodejs
-
-#RUN apt-get install -y nginx
-RUN npm install -g gulp
 RUN npm install -g bower
 
-RUN mkdir -p app
-RUN mkdir -p assets
+# Configure Nginx
+RUN cp /etc/nginx/nginx.conf{,.original}
+ADD nginx.conf                  /etc/nginx/
 
-COPY index.html     /usr/src/www/
-COPY app/           /usr/src/www/app
-COPY assets/        /usr/src/www/assets
-COPY bower.json     /usr/src/www/
-COPY package.json   /usr/src/www/
-COPY gulpfile.js   /usr/src/www/
+# Configure logrotate
+ADD logrotate.nginx.conf        /etc/logrotate.d/nginx
+ADD logrotate-loop.sh      	    /usr/bin/logrotate-loop
 
-#COPY index.html     /usr/share/nginx/html/
-#COPY app/           /usr/share/nginx/html/
-#COPY assets/        /usr/share/nginx/html/
-#COPY bower.json     /usr/share/nginx/html/
-#COPY package.json   /usr/share/nginx/html/
-#COPY gulpfile.js   /usr/share/nginx/html/
+RUN chmod 644                   /etc/logrotate.d/nginx && \
+    chown root:root	            /etc/logrotate.d/nginx
 
-#RUN cd 
+# Add files and folders of wep application
+#ADD index.html     /usr/share/nginx/html/
+#ADD app/           /usr/share/nginx/html/app/
+#ADD assets/        /usr/share/nginx/html/assets/
+#ADD bower.json     /usr/share/nginx/html/
+#ADD package.json   /usr/share/nginx/html/
+COPY www/                       /usr/share/nginx/html/
 
+# Configure Supervisord
+ADD supervisord.conf          	/etc/supervisord.conf
+ADD supervisord.nginx.conf      /etc/supervisord.d/
+ADD supervisord.logrotate.conf  /etc/supervisord.d/
+
+# Run
+WORKDIR /usr/share/nginx/html/
 RUN bower install --allow-root
 RUN npm install --allow-root
 
-EXPOSE 4000
+EXPOSE 80 443
 
-#RUN ls -l
-
-#RUN which gulp
-
-#RUN ls -ld
-
-#RUN gulp connect
-
-CMD ["gulp", "connect"]
-
-#CMD ["ls", "-l"]
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]

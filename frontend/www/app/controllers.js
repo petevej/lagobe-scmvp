@@ -148,7 +148,7 @@ class UserController{
         this.signupInfo = {
             store: {
                 storeName: "",
-                businessType: "",
+                businessType: "individual",
                 individual: {
                     register: {
                         firstName: "",
@@ -203,7 +203,7 @@ class UserController{
                 bankID: "",
                 bankBranch: "",
                 accountNumber: "",
-                accountType: "",
+                accountType: "ออมทรัพย์",
                 accountName: ""
             },
             address: {

@@ -86,7 +86,7 @@
         "lagobe": {
             "title": "ลาโกบี้",
             "items": [{
-                "href": "/#!/privacy",
+                "href": "/privacy",
                 "text": "นโยบายความเป็นส่วนตัว"
             }]
         },

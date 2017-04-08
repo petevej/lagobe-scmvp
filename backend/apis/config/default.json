@@ -3,7 +3,7 @@
     "tokenLifeTime": "30m",
     "database": {
         "driver": "mysql",
-        "host": "localhost",
+        "host": "mysql",
         "name": "lagobe",
         "user": "root",
         "password": "mnbvcxzA"

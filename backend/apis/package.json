@@ -16,6 +16,7 @@
     "jsonwebtoken": "^7.1.9",
     "morgan": "^1.7.0",
     "mysql": "^2.13.0",
+    "node-mysql-importer": "0.0.10",
     "sequelize": "^3.24.3"
   },
   "devDependencies": {

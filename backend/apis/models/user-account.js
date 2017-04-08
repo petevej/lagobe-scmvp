@@ -60,7 +60,7 @@ module.exports = function (sequelize, DataTypes) {
             return {
                 id: userAccount.get('id'),
                 email,
-                password,
+                //password,
                 firstName: first_name,
                 lastName: last_name,
                 phone
@@ -81,7 +81,7 @@ module.exports = function (sequelize, DataTypes) {
                     return {
                         id: userAccount.id,
                         email,
-                        password,
+                        //password,
                         firstName: userAccount.first_name,
                         lastName: userAccount.last_name,
                         phone: userAccount.phone

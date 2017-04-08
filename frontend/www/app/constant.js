@@ -6,7 +6,7 @@ const CONFIG = {
     PATH: {
         //APIS: "http://sc.lagobe.com"
         //APIS: "http://localhost:3000"
-        APIS: "http://localhost/apis"
+        APIS: "http://sc.lagobe.com/apis"
     }
 }
 

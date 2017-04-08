@@ -5,6 +5,7 @@
             "name": "www",
             "image": "lagobetech/lgbsc-frontend:1.0.1",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 80,
@@ -23,6 +24,7 @@
             "name": "apis",
             "image": "lagobetech/lgbsc-backend:1.0.0",
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 8000,
@@ -47,6 +49,7 @@
                 }
             ],
             "essential": true,
+            "memory": 128,
             "portMappings": [
                 {
                     "hostPort": 3306,

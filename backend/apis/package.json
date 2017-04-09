@@ -1,0 +1,31 @@
+{
+  "name": "Lagobe-API",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "SET \"NODE_ENV=test\" && mocha --recursive --timeout 10000"
+  },
+  "main": "./bin/www",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "config": "^1.21.0",
+    "emailjs": "^1.0.8",
+    "express": "^4.14.0",
+    "express-jwt": "^5.0.0",
+    "express-jwt-permissions": "^0.2.2",
+    "jsonwebtoken": "^7.1.9",
+    "morgan": "^1.7.0",
+    "mysql": "^2.13.0",
+    "node-mysql-importer": "0.0.10",
+    "sequelize": "^3.24.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "chai-http": "^3.0.0",
+    "mocha": "^3.1.2",
+    "sinon": "^1.17.6",
+    "sinon-chai": "^2.8.0",
+    "swagger-ui": "^2.2.6"
+  }
+}

@@ -1,0 +1,128 @@
+{
+	"sellwithus": "ร่วมขายกับเรา",
+	"signup": "สมัครใหม่",
+	"signin": "เข้าสู่ระบบ",
+	"firstname": "ชื่อ",
+	"lastname": "นามสกุล",
+	"email": "อีเมล",
+	"phone": "เบอร์โทรศัพท์",
+    "username": "ชื่อผู้ใช้",
+	"password":"รหัสผ่าน",
+    "language": "TH",
+    "remember": "จดจำไว้",
+    "agreement": "โดยการสมัครใหม่ ท่านกำลังเห็นด้วยกับข้อกำหนดและเงื่อนไขในสัญญาผู้ขาย",
+    "view-contract": "ดูสัญญาผู้ขายได้ที่นี่",
+    "signupsuccess": "ขอบคุณค่ะ",
+    "signupfail": "ไม่สามารถสมัครได้ กรุณาติดต่อแอดมิน",
+    "notify-error": {
+        "signin": "ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง"
+    },
+    "main": {
+        "why": {
+            "heading": "ประโยชน์ของการขายกับ Lagobe",
+            "items": [{
+                "fa-icon": "fa-bullseye",
+                "icon": "assets/img/freeze/icon-01.png",
+                "heading": "เจาะกลุ่มชัดเจน",
+                "content": "ศูนย์รวมสินค้าเสื้อผ้าแฟชั่นสำหรับเพศทางเลือกแห่งแรกของเอเชีย"
+            }, {
+                "fa-icon": "fa-flask",
+                "icon": "assets/img/freeze/icon-02.png",
+                "heading": "ทดลองตลาด",
+                "content": "เจ้าของแบรนด์ที่อยากทดลองเจาะตลาดกลุ่มเพศทางเลือกผ่านช่องทางการขายใหม่"
+            }, {
+                "fa-icon": "fa-money",
+                "icon": "assets/img/freeze/icon-03.png",
+                "heading": "เพิ่มช่องทางขาย",
+                "content": "มีสินค้าเฉพาะ แต่เข้าถึงกลุ่มเป้าหมายได้ยาก สามารถสมัครขายกับเราได้ฟรี โดยที่จะไม่มีค่าใช้จ่ายใดๆทั้งสิ้นในการวางขายกับเรา"
+            }],
+            "find-out-more": "ดูรายละเอียด >"
+        },
+        "how-to-sell": {
+            "title": "ขายกับเราง่ายนิดเดียว",
+            "paragraph": "ทำให้ธุรกิจเติบโตไปด้วยกัน",
+            "items": [
+                "สมัครเข้าใช้ Seller Center ของเรา",
+                "อัพโหลดข้อมูลสินค้าขึ้น Seller Center",
+                "ส่งสินค้ามาถ่ายรูปพร้อม Model ที่สตูดิโอ",
+                "เตรียมสินค้าเพื่อส่งเมื่อขายได้",
+                "ทางเราจะทำการโอนรายได้จากการขายให้ท่าน"
+            ],
+            "find-out-more": "Find out more about how it works >"
+        },
+        "store": {
+            "items": [{
+                "number": 20,
+                "unit": "Stores"
+            }, {
+                "number": 500,
+                "unit": "Items listed"
+            }, {
+                "number": 2000,
+                "unit": "Happy Customers"
+            }],
+            "find-out-more": "Join many happy store owners >"
+        },
+        "review": {
+            "items": [{
+                "picture": "assets/img/freeze/profile_1.png",
+                "name": "M Lady",
+                "position": "Owner, the fine clothing store",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }, {
+                "picture": "assets/img/freeze/profile_2.png",
+                "name": "M Knight Shayaya",
+                "position": "Owner, boy playground",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }, {
+                "picture": "assets/img/freeze/profile_3.jpg",
+                "name": "M Lady",
+                "position": "Owner, the fine clothing store",
+                "comment": "Ever since I've been using Lagobe to reach more targeted customers, my sales have increased 400% without even leaving my house!"
+            }]
+        }
+    },
+    "footer": {
+        "lagobe": {
+            "title": "ลาโกบี้",
+            "items": [{
+                "href": "/privacy",
+                "text": "นโยบายความเป็นส่วนตัว"
+            }]
+        },
+        "sellers": {
+            "title": "สำหรับเจ้าของร้านค้า",
+            "items": [
+                "เจ้าของร้านค้า",
+                "ประโยชน์จากการร่วมขายกับลาโกบี้",
+                "คำถามที่พบบ่อย"
+            ]
+        },
+        "shoppers": {
+            "title": "For Shoppers",
+            "items": [
+                "Future Events"
+            ]
+        },
+        "contact-us": {
+            "title": "ติดต่อเรา",
+            "line": {
+                "field": "Line",
+                "value": "@lagobe"
+            },
+            "call": {
+                "field": "Call",
+                "value": {
+                    "tel": "02-311-0589",
+                    "mon-fri": "จ.-ศ. 9.00 - 22.00 ",
+                    "sat-sun": "ส.-อา. 9.00 - 18.00"
+                }
+            },
+            "email": {
+                "field": "E-mail",
+                "value": "hello@lagobe.com"
+            },
+            "qr-code": "assets/img/freeze/qrcode.svg"
+        }
+    }
+}

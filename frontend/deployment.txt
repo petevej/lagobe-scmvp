@@ -1,2 +1,0 @@
-sudo docker pull lagobetech/lgbsc-frontend:1.0.0
-sudo docker run -p 80:4000 --name sc-frontend -d lagobetech/lgbsc-frontend:1.0.0

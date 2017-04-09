@@ -5,6 +5,7 @@
             "name": "mysql",
             "image": "lagobetech/lgbsc-db:1.0.0",
             "essential": true,
+            "memoryReservation": 384,
             "environment": [
                 {
                     "name": "MYSQL_ROOT_PASSWORD",
@@ -26,7 +27,7 @@
             "name": "apis",
             "image": "lagobetech/lgbsc-backend:1.0.1",
             "essential": true,
-            "memory": 128,
+            "memoryReservation": 128,
             "portMappings": [
                 {
                     "hostPort": 8000,
@@ -41,7 +42,7 @@
             "name": "www",
             "image": "lagobetech/lgbsc-frontend:1.0.1",
             "essential": true,
-            "memory": 128,
+            "memoryReservation": 128,
             "portMappings": [
                 {
                     "hostPort": 80,

@@ -1,0 +1,264 @@
+<main-page>
+    <div class="pre-loader">
+        <div class="load-con">
+            <img src="assets/img/freeze/logo.png" class="animated fadeInDown" alt="">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+<!--
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="fa fa-bars fa-lg"></span>
+                    </button>
+-->
+                    <a class="navbar-brand" href="/">
+                        <img src="assets/img/freeze/logo.png" alt="" class="logo">
+                    </a>
+<!--                    <button ng-click="main.loadLabel('landingpage','en')">en</button> | <button ng-click="main.loadLabel('landingpage','th')">th</button>-->
+
+
+
+
+<!--                    <a href="#"><i class="fa fa-sign-in"></i></a>-->
+<!--                    <a class="sell-with-us" ui-sref="signup">SELL WITH US</a>-->
+                    <div class="navbar-sc">
+<!--
+                        <div class="sc-header">
+                            <h3>SELLER CENTER</h3>
+                            <a class="switch-lang" href="#" ng-click="main.switchLanguage('landingpage')">{{main.label['language']}}</a>
+                        </div>
+-->
+                        <div class="sc-header">
+                            <h3>SELLER CENTER</h3>
+                        </div>
+                    </div>
+
+
+<!--
+                    <ul class="navbar-register">
+                        <li><a href="#" register-menu menu="signin"><i class="fa fa-sign-in"></i>{{main.label.signin}}</a></li>
+                        <li><a href="#" register-menu menu="signup" class="sell-with-us">{{main.label.sellwithus}}</a></li>
+                    </ul>
+-->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+<!--
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav">
+                                <li><a href="#about">about</a>
+                                </li>
+                                <li><a href="#features">features</a>
+                                </li>
+                                <li><a href="#reviews">reviews</a>
+                                </li>
+                                <li><a href="#screens">screens</a>
+                                </li>
+                                <li><a href="#demo">demo</a>
+                                </li>
+                                <li><a class="getApp" href="#getApp">get app</a>
+                                </li>
+                                <li><a href="#support">support</a>
+                                </li>
+
+                        <li><a href="/">Seller</a>
+                        </li>
+                        <li><a href="#">Shopper</a>
+                        </li>
+                    </ul>
+                </div>
+-->
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-->
+        </nav>
+        <div class="header-background">
+<!--            <img src="assets/img/freeze/bg-header.jpg" />-->
+            <img src="assets/img/freeze/scHeaderMWH.jpg" />
+
+
+
+        </div>
+        <div class="header-content">
+            <div align="center" class="container">
+                <div align="left" class="register-dialog">
+<!--
+                    <div class="sc-header">
+                        <h3>SELLER CENTER</h3>
+                        <a class="switch-lang" href="#" ng-click="main.loadLabel('landingpage')">{{main.label['language']}}</a>
+                    </div>
+-->
+                    <div class="sc-header">
+                        <h3>SELLER CENTER</h3>
+<!--                        <a class="switch-lang" href="#" ng-click="main.loadLabel('landingpage')">{{main.label['language']}}</a>-->
+                    </div>
+
+                    <div class="register-panel">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a id="signupTab" register-tab href="#signupPane">{{main.label.sellwithus}}</a></li>
+                            <li><a id="signinTab" register-tab href="#signinPane">{{main.label.signin}}</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="signupPane">
+                                <form id="signupForm" ng-submit="main.signUp()" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-6" style="padding-right: 5px;">
+                                            <input class="form-control" name="firstname" ng-model="main.form.firstName" maxlength="100" placeholder="{{main.label.firstname}}" type="text" required />
+                                        </div>
+                                        <div class="col-xs-6 col-md-6" style="padding-left: 5px;">
+                                            <input class="form-control" name="lastname" ng-model="main.form.lastName" maxlength="100" placeholder="{{main.label.lastname}}" type="text" required />
+                                        </div>
+                                    </div>
+                                    <input class="form-control" name="phone" ng-model="main.form.phone" maxlength="10" placeholder="{{main.label.phone}}" type="text" />
+                                    <input class="form-control" name="email" ng-model="main.form.email" maxlength="100" placeholder="{{main.label.email}}" type="email" />
+                                    <input class="form-control" name="password" ng-model="main.form.password" maxlength="32" placeholder="{{main.label.password}}" type="password" />
+                                    <p class="notify-error"><span ng-show="main.notifyError.signin">{{main.label['notify-error']['signup']}}</span></p>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signup}}</button>
+                                    <br />
+                                    <div class="agreement">
+                                        <div><input type="checkbox" checked /></div>
+                                        <div>{{main.label['agreement']}}</div>
+                                    </div>
+                                    <div align="center"><a href="#" ng-click="main.viewContract()">{{main.label['view-contract']}}</a></div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="signinPane">
+                                <form id="signinForm" method="post" ng-submit="main.signin()" novalidate>
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">{{main.label['username']}}</label>
+                                        <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="{{main.label['email']}}" ng-model="main.user.email" ng-change="main.clearNotifyError()">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">{{main.label['password']}}</label>
+                                        <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password" placeholder="{{main.label['password']}}" ng-model="main.user.password" ng-change="main.clearNotifyError()">
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username og password</div>
+                                    <div class="justify">
+                                        <label class="remember">
+                                            <input type="checkbox" name="remember" id="remember"> {{main.label['remember']}}
+                                        </label>
+                                        <a class="forgotpw" href="#" style="visibility: hidden;">Forgot Password</a>
+                                    </div>
+                                    <p class="notify-error"><span ng-show="main.notifyError.signin">{{main.label['notify-error']['signin']}}</span></p>
+                                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{main.label.signin}}</button>
+<!--                                    <a href="/forgot/" class="btn btn-default btn-block">Help to login</a>-->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--RevSlider-->  <!-- style="max-height: none; overflow: visible; height: 918px;"-->
+        <div class="tp-banner-container">
+            <div class="tp-banner">
+                <div class="container">
+
+
+
+
+                    <!--
+                        <div class="row vcenter">
+                            <div class="col-xs-5 col-md-7 col-lg-9">
+                                <div>Small</div>
+                            </div>
+                        </div>
+    -->
+                </div>
+            </div>
+        </div>
+
+
+    </header>
+    <div class="wrapper">
+        <div ui-view></div>
+
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
+<!--                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>-->
+                                <ul>
+                                    <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}" target="_blank">{{item.text}}</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div align="center" class="footer-item">
+                            <div class="footer-details">
+                                <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                    <br />
+                                    <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                    <br />
+                                    <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+<!--
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['lagobe']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="item in main.label['footer']['lagobe']['items']"><a ng-href="{{item.href}}">{{item.text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6">
+                        <div class="footer-item">
+                            <h3>{{main.label['footer']['sellers']['title']}}</h3>
+                            <ul>
+                                <li ng-repeat="text in main.label['footer']['sellers']['items']"><a href="#">{{text}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="footer-item">
+                            <h4>{{main.label['footer']['contact-us']['title']}}</h4>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['line']['field']}}: </span>{{main.label['footer']['contact-us']['line']['value']}}</p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['call']['field']}}: </span>{{main.label['footer']['contact-us']['call']['value']['tel']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['mon-fri']}}
+                                <br />
+                                <span class="contactus-field">&nbsp;</span>{{main.label['footer']['contact-us']['call']['value']['sat-sun']}}
+                            </p>
+                            <p><span class="contactus-field">{{main.label['footer']['contact-us']['email']['field']}}: </span>{{main.label['footer']['contact-us']['email']['value']}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+-->
+    </div>
+</main-page>

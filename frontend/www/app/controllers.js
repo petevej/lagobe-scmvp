@@ -305,6 +305,9 @@ class UserController{
 							this.signupInfo.store.individual.register.lastName = userStorage.lastName;
 							this.signupInfo.store.individual.register.phone = userStorage.phone;
 							this.signupInfo.store.individual.register.email = userStorage.email;
+							
+							this.signupInfo.store.individual.businessType = "individual";
+							this.signupInfo.bank.accountType = "ออมทรัพย์";
 						}
                     },
                     (error) => {

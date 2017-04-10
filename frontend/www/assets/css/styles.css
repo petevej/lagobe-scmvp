@@ -58,7 +58,7 @@ header .header-background {
 }
 header .header-background img {
   width: 100%;
-  min-width: 993px;
+  min-width: 1042px;
   align-self: flex-start;
 }
 header .header-content {
@@ -76,7 +76,8 @@ header .header-content .container .register-dialog {
   border-radius: 6px;
   float: none;
   margin-top: 90px;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
   background-color: #ffffff;
   box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.5);
   opacity: 0.9;
@@ -343,9 +344,6 @@ header .navbar-default.scrolled .navbar-sc .sc-header .switch-lang:active {
 section#why {
   position: relative;
 }
-section#why .section-heading h1 {
-  color: #ffffff;
-}
 section#why .why-item {
   padding: 10px 0;
   text-align: center;
@@ -353,8 +351,8 @@ section#why .why-item {
   line-height: 25px;
   color: #ffffff;
 }
-section#why .why-item h3 {
-  color: #ffffff;
+section#why .why-item img {
+  margin: 0 auto;
 }
 section#howToSell .how-to-sell p {
   font-size: 16pt;
@@ -1091,8 +1089,11 @@ section .section-heading .divider:after {
 section#why {
   background-color: #000080;
 }
-section#why .why-item i.fa {
-  color: #000080;
+section#why .section-heading h1 {
+  color: #ffffff;
+}
+section#why .why-item h3 {
+  color: #ffffff;
 }
 section#why a.find-out-more {
   color: #000080;

@@ -33,7 +33,7 @@ header {
         align-items: center;
         justify-content: center;
         img {
-             width: 100%; min-width: 993px;
+             width: 100%; min-width: 1042px;
              align-self: flex-start;
         }
     }
@@ -51,7 +51,8 @@ header {
                 border-radius: 6px;
                 float: none;
                 margin-top: 90px;
-                width: 320px;
+                width: 100%;
+                max-width: 320px;
                 background-color: @white;
                 box-shadow:  1px 4px 6px rgba(0,0,0,.5);
                 opacity: 0.9;
@@ -372,19 +373,14 @@ header {
 //}
 section#why {
     position: relative;
-    .section-heading{
-        h1 {
-            color: @white;
-        }
-    }
     .why-item {
         padding: 10px 0;
         text-align: center;
         font-size: 17px;
         line-height: 25px;
         color:@white;
-        h3 {
-            color: @white;
+        img {
+            margin: 0 auto;
         }
     }
 }

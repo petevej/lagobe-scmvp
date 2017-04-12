@@ -1,3 +1,15 @@
+.display-flex {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
 html,
 body,
 div[ui-view] {
@@ -6,19 +18,41 @@ div[ui-view] {
   padding: 0;
 }
 body {
-  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
+  font-family: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
 }
 signup-page {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-orient: vertical;
+  -moz-box-direction: normal;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-box-align: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
+  align-content: stretch;
   position: relative;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align items in Main Axis */
-  align-items: stretch;
-  /* align items in Cross Axis */
-  align-content: stretch;
-  /* Extra space in Cross Axis */
 }
 signup-page header {
   padding-top: 15px;
@@ -34,16 +68,47 @@ signup-page header .navbar-toggle {
   margin-left: 15px;
 }
 signup-page .wrapper {
+  -webkit-box-flex: 1;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  -moz-box-flex: 1;
+  /* OLD - Firefox 19- */
+  -webkit-flex: 1;
+  /* Chrome */
+  -ms-flex: 1;
+  /* IE 10 */
   flex: 1;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
   /* same as flex: 1 1 auto; */
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
   display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  -webkit-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: start;
+  -moz-box-pack: start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
   justify-content: flex-start;
-  /* align items in Main Axis */
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-box-align: stretch;
+  -ms-flex-align: stretch;
   align-items: stretch;
-  /* align items in Cross Axis */
+  -ms-flex-line-pack: stretch;
+  -webkit-align-content: stretch;
   align-content: stretch;
-  /* Extra space in Cross Axis */
 }
 signup-page .wrapper .left-side {
   background-color: lavender;
@@ -77,9 +142,11 @@ signup-page .wrapper ul.step-tabs > li > a.step-tab:focus {
   text-decoration: none;
 }
 signup-page .wrapper .tab-content {
+  position: absolute;
+  right: 0px;
+  left: 0px;
   height: 100%;
   overflow: auto;
-  margin: 0 -15px;
 }
 signup-page .wrapper .form-control[readonly] {
   color: black;
@@ -91,6 +158,23 @@ signup-page .wrapper .btn-save {
 signup-page .wrapper .btn-cancel {
   margin: 15px 0px 15px 8px;
   width: 50%;
+}
+signup-page .wrapper .BDName {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 @media screen and (max-width: 767px) {
   signup-page header .logo {

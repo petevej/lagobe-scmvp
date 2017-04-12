@@ -1,6 +1,8 @@
+@import "flex.less";
+
 @base: #000080;
 
-@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'Lato', Arial;
+@font-stack: 'Montserrat-Light', 'Montserrat-Regular', 'Kanit', 'SukhumvitSet-Text', 'Lato', Arial;
 @lightGrey:   #999999;
 @darkGrey:    #666666;
 @white:       #ffffff;
@@ -16,13 +18,13 @@ body {
 }
 
 signup-page {
+    .display-flex;
+    .flex-direction(column);
+    .justify-content(flex-start);
+    .align-items(stretch);
+    .align-content(stretch);
     position: relative;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* align items in Main Axis */
-    align-items: stretch; /* align items in Cross Axis */
-    align-content: stretch; /* Extra space in Cross Axis */
     header {
         padding-top: 15px;
         padding-bottom: 15px;
@@ -37,14 +39,14 @@ signup-page {
         }
     }
     .wrapper {
-        flex: 1; /* same as flex: 1 1 auto; */
+        .flex(1); /* same as flex: 1 1 auto; */
 
-        display: flex;
-        flex-direction: row;
+        .display-flex;
+        .flex-direction(row);
 
-        justify-content: flex-start; /* align items in Main Axis */
-        align-items: stretch; /* align items in Cross Axis */
-        align-content: stretch; /* Extra space in Cross Axis */
+        .justify-content(flex-start);
+        .align-items(stretch);
+        .align-content(stretch);
         .left-side {
             background-color: lavender;
         }
@@ -79,9 +81,9 @@ signup-page {
         }
 
         .tab-content {
+            position: absolute; right: 0px; left: 0px;
             height: 100%;
             overflow: auto;
-            margin: 0 -15px;
         }
         .form-control[readonly] {
             color: black;
@@ -93,6 +95,11 @@ signup-page {
         .btn-cancel {
             margin: 15px 0px 15px 8px;
             width: 50%;
+        }
+
+        .BDName {
+            .display-flex;
+            .align-items(center);
         }
     }
 }

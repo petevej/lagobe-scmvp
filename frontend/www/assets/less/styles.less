@@ -1,13 +1,19 @@
 @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 @import "lib.less";
+@import "flex.less";
 
 @font-face {
     font-family: "Montserrat-Light";
-    src: url('/assets/fonts/Montserrat-Light.ttf') format('truetype');
+    src: url('/assets/fonts/Montserrat-Light/Montserrat-Light.ttf') format('truetype');
 }
 @font-face {
     font-family: "Montserrat-Regular";
-    src: url('/assets/fonts/Montserrat-Regular.ttf') format('truetype');
+    src: url('/assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SukhumvitSet-Text";
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot);
+  src: url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.eot?#iefix) format('embedded-opentype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.ttf) format('truetype'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.woff) format('woff'), url(/assets/fonts/SukhumvitSet-Text/SukhumvitSet-Text.svg) format('svg');
 }
 
 body {
@@ -27,14 +33,14 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 header {
     .header-background {
+        .display-flex;
+        .justify-content(center);
+        .align-items(center);
         overflow: hidden;
         height: 662px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         img {
              width: 100%; min-width: 1042px;
-             align-self: flex-start;
+            .align-self(flex-start);
         }
     }
     
@@ -94,15 +100,15 @@ header {
                         margin-bottom: 10px;
                     }
                     .justify{
-                        display: flex;
-                        justify-content: space-between;
+                        .display-flex;
+                        .justify-content(space-between);
                         .remember, .forgotpw{
                             line-height: 24px;
                             margin-bottom: 0px;
                         }
                     }
                     .agreement {
-                        display: flex;
+                        .display-flex;
                         input[type="checkbox"] {
                              margin-right: 10px;
                         }
@@ -113,10 +119,9 @@ header {
     }
     
     .sc-header {
-        display: flex;
-        //justify-content: space-between;
-        justify-content: center;
-        align-items: center;
+        .display-flex;
+        .justify-content(center);
+        .align-items(center);
         padding: 0 12px;
         border-radius: 6px 6px 0px 0px;
         background-color: @base;
@@ -267,10 +272,9 @@ header {
                 float: right;
                 display: block;
                 .sc-header {
-                    display: flex;
-                    //justify-content: space-between;
-                    justify-content: center;
-                    align-items: center;
+                    .display-flex;
+                    .justify-content(center);
+                    .align-items(center);
                     padding: 0 12px;
                     border-radius: 6px 6px 0px 0px;
                     background-color: @base;
@@ -278,8 +282,6 @@ header {
                     h3 {
                         margin: 0px;
                         color: @white;
-
-
                         font-size: 18px;
                     }
                     .switch-lang {
@@ -460,9 +462,9 @@ section#reviews {
                     margin: 10px 15px;
                 }
                 .reviewer {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
+                    .display-flex;
+                    .flex-direction(column);
+                    .justify-content(center);
                     height:130px;
                     margin: 0px 15px 0px 150px;
                     font-size: 16pt;
@@ -802,7 +804,7 @@ form {
         .box-shadow-me(none);
         //.rounded-corners(5em);
         height: 40px;
-        line-height: 40px;
+        //line-height: 40px;
         padding:10px 20px;
         //color:lighten(@lightGrey, 21%);
         border:2px solid lighten(@lightGrey, 20%);
@@ -987,10 +989,9 @@ notify-saved {
 
 @media (min-width: 768px) {
     .sc-header {
-        display: flex;
-        //justify-content: space-between;
-        justify-content: center;
-        align-items: center;
+        .display-flex;
+        .justify-content(center);
+        .align-items(center);
         padding: 0 12px;
         border-radius: 6px 6px 0px 0px;
         background-color: @base;

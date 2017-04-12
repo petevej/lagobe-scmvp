@@ -3,6 +3,7 @@ var rename              = require('gulp-rename');
 var less                = require('gulp-less');
 var notify              = require('gulp-notify');
 var connect             = require('gulp-connect');
+var modRewrite          = require('connect-modrewrite');
 var browserify          = require('browserify');
 var babelify            = require('babelify');
 var ngAnnotate          = require('browserify-ngannotate');
@@ -22,7 +23,7 @@ var interceptErrors = function (error) {
 };
 
 gulp.task('browserify', function() {
-  return browserify('./js/app.js')
+  return browserify('./app/app.js')
       .transform(babelify, {presets: ["es2015"]})
       .transform(ngAnnotate)
       .bundle()
@@ -34,6 +35,10 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('less', function () {
+    gulp.src('./assets/less/flex.less')
+        .pipe(less())
+        .pipe(gulp.dest('./assets/css'));
+
     gulp.src('./assets/less/colors.less')
         .pipe(less())
         .pipe(rename("styles.css"))
@@ -48,17 +53,30 @@ gulp.task('less', function () {
         .pipe(gulp.dest('./assets/css'));
 });
 
-gulp.task('connect', function() {
-  connect.server({
-    root: './',
-    livereload: false,
-    port: 5000
-  });
+gulp.task('connect', function () {
+    connect.server({
+        root: './',
+        livereload: false,
+        port: 5000,
+        fallback: 'index.html',
+        middleware: function () {
+            return [
+                modRewrite([
+                    '^/apis/(.*)$ http://localhost:8000/$1 [P]'
+                ])
+            ];
+        }
+    });
 });
 
-gulp.task('default', ['less', 'connect'], function () {
+gulp.task('default', ['connect'], function () {
     gulp.watch('./assets/less/**/*.less', ['less']);
+    gulp.watch('./app/**/*.js', ['browserify']);
 });
+
+//gulp.task('default', ['less', 'connect'], function () {
+//    gulp.watch('./assets/less/**/*.less', ['less']);
+//});
 
 //gulp.task('default', ['less', 'browserify'], function () {
 //    gulp.watch('./assets/less/**/*.less', ['less']);

@@ -1,9 +1,8 @@
 /**
- * Created By: Laki Sik
- * Email: mr.laki.sik@gmail.com
- * Phone: +66874414008
- */
-
+  * Created By: Pete Vejanurug
+  * Email: p@lagobe.com
+  * Phone: +66903263755
+  */
 
 class ParentController {
 	constructor($window){

@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ลงทะเบียนในนาม</label>
-                                    <div style="display: flex;">
+                                    <div class="display-flex">
                                         <div style="width: 50%; margin-right: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="individual" checked /> บุคคล</div>
                                         <div style="width: 50%; margin-left: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="company" /> นิติบุคคล</div>
                                     </div>
@@ -47,7 +47,7 @@
                                         <form id="storeIndividualRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <input ng-model="user.signupInfo.store.individual.register.firstName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
                                                     <input ng-model="user.signupInfo.store.individual.register.lastName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
                                                 </div>
@@ -57,7 +57,7 @@
                                                 <input ng-model="user.signupInfo.store.individual.register.citizenID" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="citizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">เบอร์โทรศัพท์</label>
                                                         <input ng-model="user.signupInfo.store.individual.register.phone" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">อีเมล</label>
                                                         <input ng-model="user.signupInfo.store.individual.register.email" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualEmail" type="text" placeholder="อีเมล" class="form-control" required />
@@ -87,7 +87,7 @@
                                         <form id="storeIndividualContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <input ng-model="user.signupInfo.store.individual.contact.firstName" name="storeIndividualContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
                                                     <input ng-model="user.signupInfo.store.individual.contact.lastName" name="storeIndividualContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
                                                 </div>
@@ -97,7 +97,7 @@
                                                 <input ng-model="user.signupInfo.store.individual.contact.citizenID" name="storeIndividualContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">เบอร์โทรศัพท์</label>
                                                         <input ng-model="user.signupInfo.store.individual.contact.phone" name="storeIndividualContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
@@ -109,7 +109,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">อีเมล</label>
                                                         <input ng-model="user.signupInfo.store.individual.contact.email" name="storeIndividualContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
@@ -126,7 +126,7 @@
                                         <form id="storeCompanyRegisterForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อนิติบุคคล</label>
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                 	<select ng-model="user.signupInfo.store.company.register.companyPrefix"  name="storeCompanyPrefix" class="form-control" style="width: 50%; margin-right: 4px;">
                                                 		<option value="">เลือกคำนำหน้า</option>
                                                         <option ng-repeat="companyPrefix in user.companyPrefixes" value="{{companyPrefix.id}}">{{companyPrefix.name}}</option>
@@ -139,7 +139,7 @@
                                                 <input ng-model="user.signupInfo.store.company.register.taxID" name="companyTaxID" type="text" placeholder="เลขบัตรประจำตัวผู้เสียภาษี" class="form-control" required />
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">เบอร์โทรศัพท์</label>
                                                         <input ng-model="user.signupInfo.store.company.register.phone" name="storeCompanyPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
@@ -151,7 +151,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">อีเมล</label>
                                                         <input ng-model="user.signupInfo.store.company.register.email" name="storeCompanyEmail" type="text" placeholder="อีเมล" class="form-control" required />
@@ -169,7 +169,7 @@
                                         <form id="storeCompanyContactForm">
                                             <div class="form-group">
                                                 <label class="control-label">ชื่อ - นามสกุล</label>
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <input ng-model="user.signupInfo.store.company.contact.firstName" name="storeCompanyContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
                                                     <input ng-model="user.signupInfo.store.company.contact.lastName" name="storeCompanyContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
                                                 </div>
@@ -179,7 +179,7 @@
                                                 <input ng-model="user.signupInfo.store.company.contact.citizenID" name="storeCompanyContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">เบอร์โทรศัพท์</label>
                                                         <input ng-model="user.signupInfo.store.company.contact.phone" name="storeCompanyContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
@@ -191,7 +191,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <div style="display: flex;">
+                                                <div class="display-flex">
                                                     <div style="width: 50%; margin-right: 4px;">
                                                         <label class="control-label">อีเมล</label>
                                                         <input ng-model="user.signupInfo.store.company.contact.email" name="storeCompanyContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
@@ -238,7 +238,7 @@
                         </div>
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
-                                <div align="center" style="display: flex;">
+                                <div align="center" class="display-flex">
                                     <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
                                     <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
@@ -282,7 +282,7 @@
                         </div>
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
-                                <div align="center" style="display: flex;">
+                                <div align="center" class="display-flex">
                                     <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
                                     <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
@@ -371,7 +371,7 @@
                         </div>
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
-                                <div align="center" style="display: flex;">
+                                <div align="center" class="display-flex">
                                     <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
                                     <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
                                 </div>
@@ -387,7 +387,7 @@
 
                                 <div class="form-group">
                                     <label class="control-label">โปรโมชั่นโค๊ด</label>
-                                    <div style="display: flex;">
+                                    <div class="display-flex">
 <!--
                                         <input name="promotionCode" type="text" placeholder="โปรโมชั่นโค๊ด" class="form-control" style="border-radius: 4px 0px 0px 4px; border-right: none; width: 70%;" required />
                                         <button style="width: 30%;">ตรวจสอบ</button>
@@ -403,7 +403,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">ชื่อพนักงานฝ่ายขาย</label>
-                                    <div style="display: flex; align-items: center;">
+                                    <div class="BDName">
                                         <input name="BDCode" type="text" placeholder="รหัส" class="form-control" style="width: 20%; margin-right: 10px;" value="T1001" readonly required />
                                         <span name="BDFirstName" style="margin-right: 10px;">จิรัฎฐ์</span>
                                         <span name="BDLastName" style="margin-right: 10px;">ทองคำชุม</span>
@@ -427,7 +427,7 @@
 <!--
                         <div class = "row">
                             <div class="col-md-5 col-md-push-1">
-                                <div align="center" style="display: flex;">
+                                <div align="center" class="display-flex">
                                     <button class="btn btn-lg btn-primary btn-save">บันทึก</button>
                                     <button class="btn btn-lg btn-primary btn-cancel">ยกเลิก</button>
                                 </div>

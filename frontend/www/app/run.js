@@ -1,3 +1,9 @@
+/**
+  * Created By: Pete Vejanurug
+  * Email: p@lagobe.com
+  * Phone: +66903263755
+  */
+
 function mainRun($rootScope, $state, mainService) {
     "ngInject";
     

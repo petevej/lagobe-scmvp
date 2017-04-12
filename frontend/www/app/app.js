@@ -1,17 +1,19 @@
 /**
- * Created By: Laki Sik
- * Email: mr.laki.sik@gmail.com
- * Phone: +66874414008
- */
+  * Created By: Pete Vejanurug
+  * Email: p@lagobe.com
+  * Phone: +66903263755
+  */
 
-//import 'angular-ui-router-styles/ui-router-styles';
-//import 'angular-ui-bootstrap/';
+import '../bower_components/angular/angular.min'
+import '../bower_components/angular-ui/build/angular-ui.min'
+import 'angular-ui-router';
+import 'angular-ui-router-styles/ui-router-styles';
+import 'angular-ui-bootstrap/';
 
-angular.module('MainApp', [
-    'uiRouterStyles',
-    'ui.bootstrap',
-    'ui.filters',
-    'User'
-]);
-
-angular.module('User', []);
+import './modules';
+import './routers';
+import './constant';
+import './controllers';
+import './services';
+import './directives';
+import './run';

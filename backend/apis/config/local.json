@@ -1,9 +1,0 @@
-{
-    "database": {
-        "driver": "mysql",
-        "host": "localhost",
-        "name": "lagobe",
-        "user": "root",
-        "password": "mnbvcxzA"
-    }
-}

@@ -3,7 +3,7 @@
     "containerDefinitions": [
         {
             "name": "mysql",
-            "image": "lagobetech/lgbsc-db:1.0.0",
+            "image": "lagobetech/lgbsc-db:1.0.1",
             "essential": true,
             "memoryReservation": 384,
             "environment": [
@@ -25,7 +25,7 @@
         },
         {
             "name": "apis",
-            "image": "lagobetech/lgbsc-backend:1.0.1",
+            "image": "lagobetech/lgbsc-backend:1.0.2",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -40,7 +40,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.2",
+            "image": "lagobetech/lgbsc-frontend:1.0.3",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [

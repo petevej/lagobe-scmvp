@@ -55,7 +55,9 @@
         },
         {
             "name": "letsencrypt",
-            "image": "quay.io/letsencrypt/letsencrypt:latest",
+            "image": "lagobetech/lgbsc-letsencrypt:lastest",
+            "essential": true,
+            "memoryReservation": 128,
             "mountPoints": [
                 {
                     "sourceVolume": "letsencrypt-etc",

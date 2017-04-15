@@ -1,25 +1,5 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "volumes": [
-        {
-            "name": "letsencrypt-etc",
-            "host": {
-                "sourcePath": "/etc/letsencrypt"
-            }
-        },
-        {
-            "name": "letsencrypt-var-lib",
-            "host": {
-                "sourcePath": "/var/lib/letsencrypt"
-            }
-        },
-        {
-            "name": "letsencrypt-webroot",
-            "host": {
-                "sourcePath": "/tmp/letsencrypt/www"
-            }
-        }
-    ],
     "containerDefinitions": [
         {
             "name": "apis",
@@ -35,7 +15,7 @@
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.5",
+            "image": "lagobetech/lgbsc-frontend:1.0.4",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -49,28 +29,7 @@
                 }
             ],
             "links": [
-                "apis",
-                "letsencrypt"
-            ]
-        },
-        {
-            "name": "letsencrypt",
-            "image": "lagobetech/lgbsc-letsencrypt:lastest",
-            "essential": true,
-            "memoryReservation": 128,
-            "mountPoints": [
-                {
-                    "sourceVolume": "letsencrypt-etc",
-                    "containerPath": "/etc/letsencrypt"
-                },
-                {
-                    "sourceVolume": "letsencrypt-var-lib",
-                    "containerPath": "/var/lib/letsencrypt"
-                },
-                {
-                    "sourceVolume": "letsencrypt-webroot",
-                    "containerPath": "/var/www"
-                }
+                "apis"
             ]
         }
     ]

@@ -1,31 +1,29 @@
 {
     "AWSEBDockerrunVersion": 2,
-    "containerDefinitions": [
+    "volumes": [
         {
-            "name": "mysql",
-            "image": "lagobetech/lgbsc-db:1.0.1",
-            "essential": true,
-            "memoryReservation": 384,
-            "environment": [
-                {
-                    "name": "MYSQL_ROOT_PASSWORD",
-                    "value": "mnbvcxzA"
-                },
-                {
-                    "name": "MYSQL_DATABASE",
-                    "value": "lagobe"
-                }
-            ],
-            "portMappings": [
-                {
-                    "hostPort": 3306,
-                    "containerPort": 3306
-                }
-            ]
+            "name": "letsencrypt-etc",
+            "host": {
+                "sourcePath": "/etc/letsencrypt"
+            }
         },
         {
+            "name": "letsencrypt-var-lib",
+            "host": {
+                "sourcePath": "/var/lib/letsencrypt"
+            }
+        },
+        {
+            "name": "letsencrypt-webroot",
+            "host": {
+                "sourcePath": "/tmp/letsencrypt/www"
+            }
+        }
+    ],
+    "containerDefinitions": [
+        {
             "name": "apis",
-            "image": "lagobetech/lgbsc-backend:1.0.2",
+            "image": "lagobetech/lgbsc-backend:1.0.3",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -33,14 +31,11 @@
                     "hostPort": 8000,
                     "containerPort": 8000
                 }
-            ],
-            "links": [
-                "mysql"
             ]
         },
         {
             "name": "www",
-            "image": "lagobetech/lgbsc-frontend:1.0.4",
+            "image": "lagobetech/lgbsc-frontend:1.0.5",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [
@@ -54,7 +49,26 @@
                 }
             ],
             "links": [
-                "apis"
+                "apis",
+                "letsencrypt"
+            ]
+        },
+        {
+            "name": "letsencrypt",
+            "image": "quay.io/letsencrypt/letsencrypt:latest",
+            "mountPoints": [
+                {
+                    "sourceVolume": "letsencrypt-etc",
+                    "containerPath": "/etc/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-var-lib",
+                    "containerPath": "/var/lib/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-webroot",
+                    "containerPath": "/var/www"
+                }
             ]
         }
     ]

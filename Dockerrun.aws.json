@@ -49,8 +49,7 @@
                 }
             ],
             "links": [
-                "apis",
-                "letsencrypt"
+                "apis"
             ]
         },
         {
@@ -58,6 +57,9 @@
             "image": "lagobetech/lgbsc-letsencrypt:lastest",
             "essential": true,
             "memoryReservation": 128,
+            "links": [
+                "www"
+            ],
             "mountPoints": [
                 {
                     "sourceVolume": "letsencrypt-etc",

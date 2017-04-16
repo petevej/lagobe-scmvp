@@ -50,6 +50,16 @@
             ],
             "links": [
                 "apis"
+            ],
+            "mountPoints": [
+                {
+                    "sourceVolume": "letsencrypt-etc",
+                    "containerPath": "/etc/letsencrypt"
+                },
+                {
+                    "sourceVolume": "letsencrypt-webroot",
+                    "containerPath": "/tmp/letsencrypt/www"
+                }
             ]
         },
         {
@@ -71,7 +81,7 @@
                 },
                 {
                     "sourceVolume": "letsencrypt-webroot",
-                    "containerPath": "/var/www"
+                    "containerPath": "/tmp/letsencrypt/www"
                 }
             ]
         }

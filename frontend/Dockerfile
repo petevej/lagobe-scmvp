@@ -12,6 +12,8 @@ RUN dnf install -y \
 
 RUN npm install -g bower
 
+ADD dhparams.pem                /etc/ssl/private/
+
 # Configure Nginx
 RUN cp /etc/nginx/nginx.conf{,.original}
 ADD nginx.conf                  /etc/nginx/
@@ -24,11 +26,6 @@ RUN chmod 644                   /etc/logrotate.d/nginx && \
     chown root:root	            /etc/logrotate.d/nginx
 
 # Add files and folders of wep application
-#ADD index.html     /usr/share/nginx/html/
-#ADD app/           /usr/share/nginx/html/app/
-#ADD assets/        /usr/share/nginx/html/assets/
-#ADD bower.json     /usr/share/nginx/html/
-#ADD package.json   /usr/share/nginx/html/
 COPY www/                       /usr/share/nginx/html/
 
 # Configure Supervisord

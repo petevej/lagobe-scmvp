@@ -74,7 +74,7 @@
             "environment": [
                 {
                   "name": "DOMAINS",
-                  "value": "lagobe.com dev.sc.lagobe.com sc.lagobe.com"
+                  "value": "sc.lagobe.com"
                 },
                 {
                   "name": "EMAIL",

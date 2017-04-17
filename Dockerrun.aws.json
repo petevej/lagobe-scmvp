@@ -18,6 +18,12 @@
             "host": {
                 "sourcePath": "/tmp/letsencrypt/www"
             }
+        },
+        {
+            "name": "reload-server-conf",
+            "host": {
+                "sourcePath": "/var/run/docker.sock"
+            }
         }
     ],
     "containerDefinitions": [
@@ -64,7 +70,25 @@
         },
         {
             "name": "letsencrypt",
-            "image": "lagobetech/lgbsc-letsencrypt:lastest",
+            "image": "gordonchan/auto-letsencrypt",
+            "environment": [
+                {
+                  "name": "DOMAINS",
+                  "value": "lagobe.com dev.sc.lagobe.com sc.lagobe.com"
+                },
+                {
+                  "name": "EMAIL",
+                  "value": "a@lagobe.com"
+                },
+                {
+                  "name": "SERVER_CONTAINER",
+                  "value": "www"
+                },
+                {
+                  "name": "WEBROOT_PATH",
+                  "value": "/tmp/letsencrypt/www"
+                }
+            ],
             "essential": true,
             "memoryReservation": 128,
             "links": [
@@ -82,6 +106,10 @@
                 {
                     "sourceVolume": "letsencrypt-webroot",
                     "containerPath": "/tmp/letsencrypt/www"
+                },
+                {
+                    "sourceVolume": "reload-server-conf",
+                    "containerPath": "/var/run/docker.sock"
                 }
             ]
         }

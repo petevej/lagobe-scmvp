@@ -1,0 +1,29 @@
+.outputprint{
+    display: none; width: 100%; height: 100%;
+    background: rgb(204,204,204);
+}
+
+page[size="A4"]{
+    position: relative;
+    background: white;
+    width: 21cm;
+    height: 29.7cm;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+
+@media print{
+    page[size="A4"]{
+        margin: 0;
+        box-shadow: 0;
+    }
+    header { display: none; }
+    .wrapper{ display: none; }
+    .outputprint{ display: block; }
+}
+@page{
+    size: 21cm 29.7cm;
+    margin: 0;
+}

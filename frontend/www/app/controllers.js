@@ -470,16 +470,11 @@ class UserController{
 	}
 	
 	summarySelectValue(items, selectValue) {
-		console.log(selectValue);
-		console.log(items);
 		if (selectValue) {
             var obj = {};
 			items.forEach(function(item) {
 				obj[item.id] = item.name;
 			});
-			
-			
-			
 			return obj[selectValue];
         }
 		else {

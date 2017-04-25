@@ -29,7 +29,7 @@
     "containerDefinitions": [
         {
             "name": "apis",
-            "image": "lagobetech/lgbsc-backend:1.0.3",
+            "image": "lagobetech/lgbsc-backend:1.0.4",
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [

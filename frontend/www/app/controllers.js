@@ -55,7 +55,7 @@ class MainController extends ParentController {
 
 	viewContract() {
         this._$uibModal.open({
-			template: '<a embed-pdf href="http://sc.lagobe.com/assets/docs/Lagobe_MPA_2017_Digital.pdf" class="embed"></a>',
+			template: '<a embed-pdf href="https://sc.lagobe.com/assets/docs/Lagobe_MPA_2017_Digital.pdf" class="embed"></a>',
 			size: 'lg',
 			backdrop: true,
 			windowTopClass: 'modal-contract'
@@ -282,16 +282,16 @@ class UserController{
                             this.signupInfo = JSON.parse(JSON.stringify(data));
 							
 							if (data.store.individual.document.citizenCard) {
-                                this.image.individual.citizenCard = `${this._CONFIG.PATH.APIS}${data.store.individual.document.citizenCard}`;
+								this.getStoreDocumentURL('individual', 'citizenCard');
                             }
 							if (data.store.individual.document.homeRegister) {
-                                this.image.individual.homeRegister = `${this._CONFIG.PATH.APIS}${data.store.individual.document.homeRegister}`;
+								this.getStoreDocumentURL('individual', 'homeRegister');
                             }
 							if (data.store.company.document.companyCertificate) {
-                                this.image.company.companyCertificate = `${this._CONFIG.PATH.APIS}${data.store.company.document.companyCertificate}`;
+								this.getStoreDocumentURL('company', 'companyCertificate');
                             }
 							if (data.store.company.document.tradeRegister) {
-                                this.image.company.tradeRegister = `${this._CONFIG.PATH.APIS}${data.store.company.document.tradeRegister}`;
+								this.getStoreDocumentURL('company', 'tradeRegister');
                             }
 							
 							$('input[sign-on-behalf-of][value="'+data.store.businessType+'"]').trigger('loadData');
@@ -343,17 +343,29 @@ class UserController{
     }
 
     uploadStoreDocument(businessType, documentName) {
-        this._userService.uploadFile(this.file[businessType][documentName])
+        this._userService.uploadFile(documentName, this.file[businessType][documentName])
             .then(
                 (data) => {
-					this.signupInfo.store[businessType].document[documentName] = data.src;
-					this.image[businessType][documentName] = `${this._CONFIG.PATH.APIS}${data.src}`;
+					this.signupInfo.store[businessType].document[documentName] = data.awsS3Key;
+					this.image[businessType][documentName] = data.awsS3URL;
                 },
                 (error) => {
                     alert(error.message);
                 }
             );
     }
+	
+	getStoreDocumentURL(businessType, documentName) {
+		this._userService.getAWSS3URL(this.signupInfo.store[businessType].document[documentName])
+            .then(
+                (data) => {
+					this.image[businessType][documentName] = data.awsS3URL;
+                },
+                (error) => {
+                    alert(error.message);
+                }
+            );
+	}
 
     updateAddressDocumentDropValues() {
         if(this.signupInfo.address.isDocumentDropSamePickup){
@@ -452,6 +464,28 @@ class UserController{
 			}
 		);
     }
+	
+	summaryValue(value) {
+		return value? value: "-";
+	}
+	
+	summarySelectValue(items, selectValue) {
+		console.log(selectValue);
+		console.log(items);
+		if (selectValue) {
+            var obj = {};
+			items.forEach(function(item) {
+				obj[item.id] = item.name;
+			});
+			
+			
+			
+			return obj[selectValue];
+        }
+		else {
+			return "-";
+		}
+	}
 
     signout() {
         delete this._$window.localStorage.user;

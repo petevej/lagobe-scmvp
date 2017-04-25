@@ -1,1 +1,8 @@
 sudo docker run -d -p 80:80 -p 443:443 --name sc-frontend --link sc-backend:apis lagobetech/lgbsc-frontend:1.0.3
+
+docker run -it --rm --name letsencrypt \
+    -v "/etc/letsencrypt:/etc/letsencrypt" \
+    -v "/var/lib/letsencrypt:/var/lib/letsencrypt" \
+    -v "/tmp/letsencrypt/www:/var/www" \
+    quay.io/letsencrypt/letsencrypt:latest auth --authenticator webroot --webroot-path /var/www --agree-tos --email a@lagobe.com --renew-by-default --server \
+    https://acme-v01.api.letsencrypt.org/directory -d my.example.com

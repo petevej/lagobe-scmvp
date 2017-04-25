@@ -89,46 +89,17 @@ function userService(CONFIG, $window, $http, $q){
         getProvinces,
         getAmphurs,
         getDistricts,
-        getShopInfo
+        getShopInfo,
+        getAWSS3URL
     };
     
-    function uploadFile(file) {
-        let fd = new FormData();
-        fd.append('file', file);
-
+    function uploadFile(documentName, file) {
         let deferred = $q.defer();
-
-//        $http({
-//            method: 'PUT',
-//            url: `${CONFIG.PATH.APIS}/resource`,
-//            data: fd,
-//            headers: {
-//                'Content-Type': undefined
-//            }
-//        }).then(
-//            (respond) => {
-//                deferred.resolve(respond.data);
-//            },
-//            (reason) => {
-//                deferred.reject(reason.data);
-//            }
-//        );
-
-    //	$http.post(`${CONFIG.PATH.APIS}/upload`, JSON.stringify(fd), {
-    //        transformRequest: angular.identity,
-    //        headers: {'Content-Type': undefined}
-    //    }).then(
-    //        (respond) => {
-    //            deferred.resolve(respond.data);
-    //        },
-    //        (reason) => {
-    //            deferred.reject(reason.data);
-    //        }
-    //    );
         
+        let fd = new FormData(); fd.append('file', file);
         let userStorage = JSON.parse($window.localStorage.user);
         let userAccountID = userStorage.id;
-        $http.post(`${CONFIG.PATH.APIS}/upload/${userAccountID}`, fd, {
+        $http.post(`${CONFIG.PATH.APIS}/awsS3/upload/${userAccountID}?documentName=${documentName}`, fd, {
             transformRequest: angular.identity,
             headers: {'Content-Type': undefined}
         }).then(
@@ -188,16 +159,6 @@ function userService(CONFIG, $window, $http, $q){
 
     function getProvinces(queries) {
         let deferred = $q.defer();
-//    	$http.get(`${CONFIG.PATH.APIS}/location/provinces?zipcode=${queries.zipcode}`)
-//            .then(
-//    			(respond) => {
-//		    		deferred.resolve(respond.data);
-//    			},
-//    			(reason) => {
-//    				deferred.reject(reason.data);
-//    			}
-//    		);
-            
         jQuery.ajax(`${CONFIG.PATH.APIS}/location/provinces?zipcode=${queries.zipcode}`, {
             type: "GET",
             async: false,
@@ -213,16 +174,6 @@ function userService(CONFIG, $window, $http, $q){
 
     function getAmphurs(queries) {
         let deferred = $q.defer();
-//        $http.get(`${CONFIG.PATH.APIS}/location/amphurs?zipcode=${queries.zipcode}&province=${queries.province}`)
-//            .then(
-//    			(respond) => {
-//		    		deferred.resolve(respond.data);
-//    			},
-//    			(reason) => {
-//    				deferred.reject(reason.data);
-//    			}
-//    		);
-            
         jQuery.ajax(`${CONFIG.PATH.APIS}/location/amphurs?zipcode=${queries.zipcode}&province=${queries.province}`, {
             type: "GET",
             async: false,
@@ -238,16 +189,6 @@ function userService(CONFIG, $window, $http, $q){
 
     function getDistricts(queries) {
         let deferred = $q.defer();
-//        $http.get(`${CONFIG.PATH.APIS}/location/districts?zipcode=${queries.zipcode}&province=${queries.province}&amphur=${queries.amphur}`)
-//            .then(
-//    			(respond) => {
-//		    		deferred.resolve(respond.data);
-//    			},
-//    			(reason) => {
-//    				deferred.reject(reason.data);
-//    			}
-//    		);
-
         jQuery.ajax(`${CONFIG.PATH.APIS}/location/districts?zipcode=${queries.zipcode}&province=${queries.province}&amphur=${queries.amphur}`, {
             type: "GET",
             async: false,
@@ -274,6 +215,20 @@ function userService(CONFIG, $window, $http, $q){
     				deferred.reject(reason.data);
     			}
     		);
+    	return deferred.promise;
+    }
+    
+    function getAWSS3URL(awsS3Key) {
+        let deferred = $q.defer();
+        $http.get(`${CONFIG.PATH.APIS}/awsS3/url?awsS3Key=${awsS3Key}`)
+            .then(
+                (respond) => {
+                    deferred.resolve(respond.data);
+                },
+                (reason) => {
+                    deferred.reject(reason.data);
+                }
+            );
     	return deferred.promise;
     }
 }

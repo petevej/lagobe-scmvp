@@ -51,7 +51,7 @@ function mainConfig($urlRouterProvider, $stateProvider, $locationProvider){
             controller: "UserController",
             controllerAs: "user",
             data: {
-                css: "assets/css/signup.css"
+                css: ["assets/css/signup.css", "assets/css/print-a4.css"]
             }
         });
 }

@@ -55,6 +55,11 @@ app.use('/', routes); //This is our route middleware
 //    res.send(swaggerSpec);
 //});
 
+app.get('/summary', function (req, res) {
+    res.setHeader('Content-Type', 'text/html');
+    res.sendFile(path.join(__dirname, 'summary.html'));
+});
+
 //app.use(function(err, req, res, next){
 //  if (err.constructor.name === 'UnauthorizedError') {
 //    res.status(401).send('Unauthorized');

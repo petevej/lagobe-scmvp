@@ -15,6 +15,7 @@
                     <li><a class="step-tab" href="#step2" step-tab>ข้อมูลทางการเงิน</a></li>
                     <li><a class="step-tab" href="#step3" step-tab>ที่อยู่รับส่งสินค้า</a></li>
                     <li><a class="step-tab" href="#step4" step-tab>ติดต่อฝ่ายขาย</a></li>
+                    <li><a class="step-tab" href="#summary" step-tab>สรุป</a></li>
                     <li><a class="step-tab" href="#" ng-click="user.signout()">ลงชื่อออก</a></li>
                 </ul>
             </div>
@@ -436,8 +437,647 @@
 -->
                     </div>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="summary">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-5 col-md-push-1">
+                                <h1>ข้อมูลร้านค้า</h1>
+                                <div class="form-group">
+                                    <label class="control-label">ชื่อร้านค้า</label>
+
+                                    <input ng-model="user.signupInfo.store.storeName" name="storeName" type="text" placeholder="ชื่อร้านค้า" class="form-control" required />
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.storeName)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ลงทะเบียนในนาม</label>
+                                    <div class="display-flex">
+                                        <div style="width: 50%; margin-right: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="individual" checked /> บุคคล</div>
+                                        <div style="width: 50%; margin-left: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="company" /> นิติบุคคล</div>
+                                    </div>
+                                </div>
+
+                                <div ng-switch on="user.signOnbehalfOfSwitch">
+                                    <div ng-switch-when="individual">
+                                        <form id="storeIndividualRegisterForm">
+                                            <div class="form-group">
+                                                <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
+                                                <div class="display-flex">
+                                                    <input ng-model="user.signupInfo.store.individual.register.firstName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                                    <input ng-model="user.signupInfo.store.individual.register.lastName" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                </div>
+                                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.firstName)" style="margin-right: 4px;"></span>
+                                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.lastName)"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                                <input ng-model="user.signupInfo.store.individual.register.citizenID" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="citizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">เบอร์โทรศัพท์</label>
+                                                        <input ng-model="user.signupInfo.store.individual.register.phone" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                                        <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.phone)"></span>
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">LINE ID</label>
+                                                        <input ng-model="user.signupInfo.store.individual.register.lineID" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                                        <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.lineID)"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">อีเมล</label>
+                                                        <input ng-model="user.signupInfo.store.individual.register.email" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">Facebook</label>
+                                                        <input ng-model="user.signupInfo.store.individual.register.facebook" ng-model-options="{ updateOn: 'change' }" ng-change="user.updateStoreIndividualContactValues()" name="storeIndividualFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div class="form-group">
+                                            <input id="storeIndividualSwitchContactSameRegister" store-individual-switch-contact-same-register ng-model="user.signupInfo.store.individual.isContactSameRegister" type="checkbox" /> ผู้ติดต่อชื่อเดียวกันกับผู้ลงทะเบียน
+                                        </div>
+                                        <form id="storeIndividualContactForm">
+                                            <div class="form-group">
+                                                <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
+                                                <div class="display-flex">
+                                                    <input ng-model="user.signupInfo.store.individual.contact.firstName" name="storeIndividualContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                                    <input ng-model="user.signupInfo.store.individual.contact.lastName" name="storeIndividualContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                                <input ng-model="user.signupInfo.store.individual.contact.citizenID" name="storeIndividualContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">เบอร์โทรศัพท์</label>
+                                                        <input ng-model="user.signupInfo.store.individual.contact.phone" name="storeIndividualContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">LINE ID</label>
+                                                        <input ng-model="user.signupInfo.store.individual.contact.lineID" name="storeIndividualContactLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">อีเมล</label>
+                                                        <input ng-model="user.signupInfo.store.individual.contact.email" name="storeIndividualContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">Facebook</label>
+                                                        <input ng-model="user.signupInfo.store.individual.contact.facebook" name="storeIndividualContactFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div ng-switch-when="company">
+                                        <form id="storeCompanyRegisterForm">
+                                            <div class="form-group">
+                                                <label class="control-label">ชื่อนิติบุคคล</label>
+                                                <div class="display-flex">
+                                                	<select ng-model="user.signupInfo.store.company.register.companyPrefix"  name="storeCompanyPrefix" class="form-control" style="width: 50%; margin-right: 4px;">
+                                                		<option value="">เลือกคำนำหน้า</option>
+                                                        <option ng-repeat="companyPrefix in user.companyPrefixes" value="{{companyPrefix.id}}">{{companyPrefix.name}}</option>
+                                                	</select>
+                                                    <span class="summary-value" ng-bind="user.summarySelectValue(user.companyPrefixes, user.signupInfo.store.company.register.companyPrefix)"></span>
+                                                    <input ng-model="user.signupInfo.store.company.register.companyName" name="storeCompanyName" type="text" placeholder="ชื่อนิติบุคคล" class="form-control" style="width: 50%; margin-left: 4px;" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">เลขบัตรประจำตัวผู้เสียภาษี</label>
+                                                <input ng-model="user.signupInfo.store.company.register.taxID" name="companyTaxID" type="text" placeholder="เลขบัตรประจำตัวผู้เสียภาษี" class="form-control" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">เบอร์โทรศัพท์</label>
+                                                        <input ng-model="user.signupInfo.store.company.register.phone" name="storeCompanyPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">LINE ID</label>
+                                                        <input ng-model="user.signupInfo.store.company.register.lineID" name="storeCompanyLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">อีเมล</label>
+                                                        <input ng-model="user.signupInfo.store.company.register.email" name="storeCompanyEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">Facebook</label>
+                                                        <input ng-model="user.signupInfo.store.company.register.facebook" name="storeCompanyFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <div>
+                                            <label>ผู้ติดต่อ</label>
+                                        </div>
+                                        <form id="storeCompanyContactForm">
+                                            <div class="form-group">
+                                                <label class="control-label">ชื่อ - นามสกุล</label>
+                                                <div class="display-flex">
+                                                    <input ng-model="user.signupInfo.store.company.contact.firstName" name="storeCompanyContactFirstName" type="text" placeholder="ชื่อ" class="form-control" style="margin-right: 4px;" required />
+                                                    <input ng-model="user.signupInfo.store.company.contact.lastName" name="storeCompanyContactLastName" type="text" placeholder="นามสกุล" class="form-control" style="margin-left: 4px;" required />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                                <input ng-model="user.signupInfo.store.company.contact.citizenID" name="storeCompanyContactCitizenID" type="text" placeholder="เลขบัตรประจำตัวประชาชน" class="form-control" required />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">เบอร์โทรศัพท์</label>
+                                                        <input ng-model="user.signupInfo.store.company.contact.phone" name="storeCompanyContactPhone" type="text" placeholder="เบอร์โทรศัพท์" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">LINE ID</label>
+                                                        <input ng-model="user.signupInfo.store.company.contact.lineID" name="storeCompanyContactLineID" type="text" placeholder="LINE ID" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="display-flex">
+                                                    <div style="width: 50%; margin-right: 4px;">
+                                                        <label class="control-label">อีเมล</label>
+                                                        <input ng-model="user.signupInfo.store.company.contact.email" name="storeCompanyContactEmail" type="text" placeholder="อีเมล" class="form-control" required />
+                                                    </div>
+                                                    <div style="width: 50%; margin-left: 4px;">
+                                                        <label class="control-label">Facebook</label>
+                                                        <input ng-model="user.signupInfo.store.company.contact.facebook" name="storeCompanyContactFacebook" type="text" placeholder="Facebook" class="form-control" required />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-5 col-md-push-2">
+                                <h1>สำเนาเอกสาร</h1>
+                                <div ng-switch on="user.signOnbehalfOfSwitch">
+                                    <div ng-switch-when="individual">
+                                        <div class="form-group">
+                                            <label class="control-label">สำเนาบัตรประชาชน</label>
+                                            <input ng-model="user.file.individual.citizenCard" store-upload-document business-type="individual" document-name="citizenCard" name="storeIndividualCitizenCard" type="file" class="form-control" />
+                                            <span class="summary-value" ng-if="(user.signupInfo.store.individual.document.citizenCard == '')">-</span>
+                                            <img ng-src="{{user.image.individual.citizenCard}}" class="img-responsive" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">สำเนาทะเบียนบ้าน</label>
+                                            <input ng-model="user.file.individual.homeRegister" store-upload-document business-type="individual" document-name="homeRegister" name="storeIndividualHomeRegister" type="file" class="form-control" />
+                                            <img ng-src="{{user.image.individual.homeRegister}}" class="img-responsive" />
+                                        </div>
+                                    </div>
+                                    <div ng-switch-when="company">
+                                        <div class="form-group">
+                                            <label class="control-label">สำเนาหนังสือรับรอง</label>
+                                            <input ng-model="user.file.company.companyCertificate" store-upload-document store-upload-document business-type="company" document-name="companyCertificate" name="storeCompanyCertificate" type="file" class="form-control" />
+                                            <img ng-src="{{user.image.company.companyCertificate}}" class="img-responsive" />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">สำเนาทะเบียนการค้า</label>
+                                            <input ng-model="user.file.company.tradeRegister" store-upload-document store-upload-document business-type="company" document-name="tradeRegister" name="storeCompanyTradeRegister" type="file" class="form-control" />
+                                            <img ng-src="{{user.image.company.tradeRegister}}" class="img-responsive" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-5 col-md-push-1">
+                                <div align="center" class="display-flex">
+                                    <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
+                                    <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-5 col-md-push-1">
+                                <h1>ข้อมูลทางการเงิน</h1>
+                                <div class="form-group">
+                                    <label class="control-label">ชื่อธนาคาร</label>
+                                    <select ng-model="user.signupInfo.bank.bankID" class="form-control">
+                                      	<option value="">เลือกธนาคาร</option>
+                                        <option ng-repeat="bank in user.banks | orderBy: 'name'" value="{{bank.id}}">{{bank.name}}</option>
+                                    </select>
+                                    <span class="summary-value" ng-bind="user.summarySelectValue(user.banks, user.signupInfo.bank.bankID)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">เลขที่บัญชี</label>
+                                    <input ng-model="user.signupInfo.bank.accountNumber" name="bankAccountNumber" type="text" placeholder="เลขที่บัญชี" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">สาขา</label>
+                                    <input ng-model="user.signupInfo.bank.bankBranch" name="bankAccountBranch" type="text" placeholder="สาขา" class="form-control" required />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ประเภทบัญชี</label>
+                                    <select ng-model="user.signupInfo.bank.accountType" class="form-control">
+                                        <option value="">เลือกประเภท</option>
+                                        <option value="ออมทรัพย์">ออมทรัพย์</option>
+                                        <option value="กระแสรายวัน">กระแสรายวัน</option>
+                                    </select>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.bank.accountType)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ชื่อบัญชี</label>
+                                    <input ng-model="user.signupInfo.bank.accountName" name="bankAccountName" type="text" placeholder="ชื่อบัญชี" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                        <div class = "row">
+                            <div class="col-md-5 col-md-push-1">
+                                <div align="center" class="display-flex">
+                                    <button class="btn btn-lg btn-primary btn-save" ng-click="user.save()">บันทึก</button>
+                                    <button class="btn btn-lg btn-primary btn-cancel" ng-click="user.cancel()">ยกเลิก</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <notify-saved id="notifySaved"></notify-saved>
+    <div id="outputprint" class="outputprint">
+        <!--<page size="A4">
+            <div class="layout">-->
+                <!--<div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">-->
+                            <h1>ข้อมูลร้านค้า</h1>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อร้านค้า</label>
+                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.storeName)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ลงทะเบียนในนาม</label>
+                                <div class="display-flex">
+                                    <div style="width: 50%; margin-right: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="individual" checked /> บุคคล</div>
+                                    <div style="width: 50%; margin-left: 4px;"><input ng-model="user.signupInfo.store.businessType" sign-on-behalf-of type="radio" name="signOnbehalfOf" value="company" /> นิติบุคคล</div>
+                                </div>
+                            </div>
+    
+                            <div ng-switch on="user.signOnbehalfOfSwitch">
+                                <div ng-switch-when="individual">
+                                    <form id="storeIndividualRegisterForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล ผู้ลงทะเบียน</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.register.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div class="form-group">
+                                        <input id="storeIndividualSwitchContactSameRegister" store-individual-switch-contact-same-register ng-model="user.signupInfo.store.individual.isContactSameRegister" type="checkbox" /> ผู้ติดต่อชื่อเดียวกันกับผู้ลงทะเบียน
+                                    </div>
+                                    <form id="storeIndividualContactForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล ผู้ติดต่อ</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.individual.contact.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div ng-switch-when="company">
+                                    <form id="storeCompanyRegisterForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อนิติบุคคล</label>
+                                            <span class="summary-value" ng-bind="user.summarySelectValue(user.companyPrefixes, user.signupInfo.store.company.register.companyPrefix)"></span>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.companyName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวผู้เสียภาษี</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.taxID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.register.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <div>
+                                        <label>ผู้ติดต่อ</label>
+                                    </div>
+                                    <form id="storeCompanyContactForm">
+                                        <div class="form-group">
+                                            <label class="control-label">ชื่อ - นามสกุล</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.firstName)" style="margin-right: 4px;"></span>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.lastName)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">เลขบัตรประจำตัวประชาชน</label>
+                                            <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.citizenID)"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">เบอร์โทรศัพท์</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.phone)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">LINE ID</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.lineID)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="display-flex">
+                                                <div style="width: 50%; margin-right: 4px;">
+                                                    <label class="control-label">อีเมล</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.email)"></span>
+                                                </div>
+                                                <div style="width: 50%; margin-left: 4px;">
+                                                    <label class="control-label">Facebook</label>
+                                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.store.company.contact.facebook)"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        <!--</div>
+                        <div class="col-md-5 col-md-push-2">
+                            <h1>สำเนาเอกสาร</h1>
+                            <div ng-switch on="user.signOnbehalfOfSwitch">
+                                <div ng-switch-when="individual">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาบัตรประชาชน</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.individual.document.citizenCard == '')">-</span>
+                                        <img ng-src="{{user.image.individual.citizenCard}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนบ้าน</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.individual.document.homeRegister == '')">-</span>
+                                        <img ng-src="{{user.image.individual.homeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div ng-switch-when="company">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาหนังสือรับรอง</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.company.document.companyCertificate == '')">-</span>
+                                        <img ng-src="{{user.image.company.companyCertificate}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนการค้า</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.company.document.tradeRegister == '')">-</span>
+                                        <img ng-src="{{user.image.company.tradeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+            <!--</div>
+        </page>
+        <page size="A4">
+            <div class="layout">-->
+                <!--<div class="col-md-12">
+                    <div class="row">-->
+                            <h1>สำเนาเอกสาร</h1>
+                            <div ng-switch on="user.signOnbehalfOfSwitch">
+                                <div ng-switch-when="individual">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาบัตรประชาชน</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.individual.document.citizenCard == '')">-</span>
+                                        <img ng-src="{{user.image.individual.citizenCard}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนบ้าน</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.individual.document.homeRegister == '')">-</span>
+                                        <img ng-src="{{user.image.individual.homeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                                <div ng-switch-when="company">
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาหนังสือรับรอง</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.company.document.companyCertificate == '')">-</span>
+                                        <img ng-src="{{user.image.company.companyCertificate}}" class="img-responsive" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">สำเนาทะเบียนการค้า</label>
+                                        <span class="summary-value" ng-if="(user.signupInfo.store.company.document.tradeRegister == '')">-</span>
+                                        <img ng-src="{{user.image.company.tradeRegister}}" class="img-responsive" />
+                                    </div>
+                                </div>
+                            </div>
+                        <!--<div class="col-md-5 col-md-push-1">-->
+                            <h1>ข้อมูลทางการเงิน</h1>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อธนาคาร</label>
+                                <span class="summary-value" ng-bind="user.summarySelectValue(user.banks, user.signupInfo.bank.bankID)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เลขที่บัญชี</label>
+                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.bank.accountNumber)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">สาขา</label>
+                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.bank.bankBranch)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ประเภทบัญชี</label>
+                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.bank.accountType)"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อบัญชี</label>
+                                <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.bank.accountName)"></span>
+                            </div>
+                        <!--</div>
+                    </div>
+                </div>-->
+            <!--</div>
+        </page>
+        <page size="A4">
+            <div class="layout">-->
+                <!--<div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">-->
+                            <form id="addressPickupForm">
+                                <h1>ที่อยู่การรับสินค้า</h1>
+                                <div class="form-group">
+                                    <label class="control-label">รหัสไปรษณีย์</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.pickup.zipCode)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">จังหวัด</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.pickup.province)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">เขต / อำเภอ</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.pickup.amphur)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">แขวง / ตำบล</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.pickup.district)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ที่อยู่</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.pickup.other)"></span>
+                                </div>
+                            </form>
+                            <div class="form-group">
+                                <input id="addressSwitchDocumentDropSamePickup" ng-model="user.signupInfo.address.isDocumentDropSamePickup" address-switch-documentdrop-same-pickup type="checkbox" /> ใช้ที่อยู่เดียวกันกับการส่งเอกสาร
+                            </div>
+                        <!--</div>
+                        <div class="col-md-5 col-md-push-2">-->
+                            <form id="addressDocumentDropForm">
+                                <h1>ที่อยู่การส่งเอกสาร</h1>
+                                <div class="form-group">
+                                    <label class="control-label">รหัสไปรษณีย์</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.documentDrop.zipCode)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">จังหวัด</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.documentDrop.province)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">เขต / อำเภอ</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.documentDrop.amphur)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">แขวง / ตำบล</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.documentDrop.district)"></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">ที่อยู่</label>
+                                    <span class="summary-value" ng-bind="user.summaryValue(user.signupInfo.address.documentDrop.other)"></span>
+                                </div>
+                            </form>
+                        <!--</div>
+                    </div>
+                </div>-->
+            <!--</div>
+        </page>
+        <page size="A4">
+            <div class="layout">-->
+                <!--<div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-5 col-md-push-1">-->
+                            <h1>ข้อมูลฝ่ายขาย</h1>
+
+                            <div class="form-group">
+                                <label class="control-label">โปรโมชั่นโค๊ด</label>
+                                <span class="summary-value">SELLBEJ</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ค่าคอมมิชชั่น</label>
+                                <span class="summary-value">11%</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">ชื่อพนักงานฝ่ายขาย</label>
+                                <div class="BDName">
+                                    <span class="summary-value" style="margin-right: 10px;">T1001</span>
+                                    <span name="BDFirstName" style="margin-right: 10px;">จิรัฎฐ์</span>
+                                    <span name="BDLastName" style="margin-right: 10px;">ทองคำชุม</span>
+                                    (<span name="BDNickname">เบสท์</span>)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">เบอร์โทรศัพท์</label>
+                                <span class="summary-value">0917811877</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">LINE ID</label>
+                                <span class="summary-value">lagobe.j</span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">อีเมล</label>
+                                <span class="summary-value">j@lagobe.com</span>
+                            </div>
+                        <!--</div>
+                    </div>
+                </div>-->
+            <!--</div>
+        </page>-->
+    </div>
 </signup-page>

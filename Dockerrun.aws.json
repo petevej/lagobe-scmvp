@@ -30,6 +30,12 @@
         {
             "name": "apis",
             "image": "lagobetech/lgbsc-backend:1.0.4",
+            "environment": [
+                {
+                  "name": "NODE_ENV",
+                  "value": "develop"
+                }
+            ],
             "essential": true,
             "memoryReservation": 128,
             "portMappings": [

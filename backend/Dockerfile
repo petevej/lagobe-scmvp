@@ -1,7 +1,8 @@
 FROM node:6.10
 
-ADD entrypoint.sh .
-ADD apis/ /usr/src/apis/
+ADD entrypoint.sh   /usr/src/apis/
+ADD apis/           /usr/src/apis/
+WORKDIR /usr/src/apis/
 
 RUN npm install
 
